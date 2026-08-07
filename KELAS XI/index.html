@@ -1,0 +1,1508 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Media Pembelajaran Berpikir Komputasional - Kelas XI Informatika</title>
+    <!-- Google Fonts & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fredoka+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #3b3b98;
+            --primary-light: #20bf6b;
+            --secondary: #f7b731;
+            --accent: #2d98da;
+            --danger: #eb3b5a;
+            --bg-light: #f8fafc;
+            --card-bg: #ffffff;
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+            --radius: 16px;
+            --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 20px 30px -10px rgba(0, 0, 0, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Header & Nav */
+        header {
+            background: rgba(59, 59, 152, 0.95);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        .logo i {
+            color: var(--secondary);
+            font-size: 1.6rem;
+        }
+
+        nav {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #e2e8f0;
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-btn:hover, .nav-btn.active {
+            background: var(--secondary);
+            color: var(--text-dark);
+            border-color: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(247, 183, 49, 0.3);
+        }
+
+        .nav-btn.teacher-btn {
+            background: rgba(247, 183, 49, 0.2);
+            border: 1px solid var(--secondary);
+            color: #ffeaa7;
+        }
+
+        .nav-btn.teacher-btn:hover, .nav-btn.teacher-btn.active {
+            background: var(--secondary);
+            color: var(--text-dark);
+        }
+
+        /* Sub Tab Navigation Styles */
+        .sub-nav {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 1.8rem;
+            flex-wrap: wrap;
+            background: #e2e8f0;
+            padding: 6px;
+            border-radius: 14px;
+        }
+
+        .sub-btn {
+            flex: 1;
+            min-width: 120px;
+            background: transparent;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            color: var(--text-muted);
+            transition: all 0.25s ease;
+            text-align: center;
+        }
+
+        .sub-btn.active {
+            background: white;
+            color: var(--primary);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .sub-btn:hover:not(.active) {
+            color: var(--primary);
+        }
+
+        .sub-content {
+            display: none;
+            animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .sub-content.active {
+            display: block;
+        }
+
+        /* Inner Sub Navigation */
+        .inner-sub-nav {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .inner-sub-btn {
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            color: var(--text-dark);
+            transition: all 0.2s;
+        }
+
+        .inner-sub-btn.active, .inner-sub-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* Main Layout */
+        main {
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 0 1.2rem;
+            flex: 1;
+            width: 100%;
+        }
+
+        .section {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Hero / Welcome Banner */
+        .hero-card {
+            background: linear-gradient(135deg, #3b3b98 0%, #20bf6b 100%);
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 24px;
+            text-align: center;
+            margin-bottom: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(59, 59, 152, 0.15);
+        }
+
+        .hero-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .hero-card h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.8rem;
+            line-height: 1.2;
+        }
+
+        .hero-card p {
+            font-size: 1.05rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 1.8rem auto;
+            line-height: 1.6;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding-top: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-item .num {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #f7b731;
+        }
+
+        .stat-item .label {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+        /* Section Titles */
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Grid Cards */
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 1.8rem;
+            text-align: left;
+            box-shadow: var(--shadow);
+            border: 1px solid #f1f5f9;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+            border-color: rgba(59, 59, 152, 0.3);
+        }
+
+        .icon-wrapper {
+            width: 55px;
+            height: 55px;
+            border-radius: 14px;
+            background: rgba(59, 59, 152, 0.06);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.2rem;
+            transition: 0.3s;
+        }
+
+        .card:hover .icon-wrapper {
+            background: var(--primary);
+            color: white;
+        }
+
+        .card h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .card p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-top: auto;
+        }
+
+        /* Empty State Placeholder */
+        .empty-placeholder {
+            background: white;
+            border: 2px dashed #cbd5e1;
+            border-radius: var(--radius);
+            padding: 3.5rem 2rem;
+            text-align: center;
+            color: var(--text-muted);
+            margin-top: 1rem;
+        }
+
+        .empty-placeholder i {
+            font-size: 3.5rem;
+            color: #94a3b8;
+            margin-bottom: 1rem;
+        }
+
+        .empty-placeholder h3 {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 0.4rem;
+        }
+
+        .empty-placeholder p {
+            font-size: 0.9rem;
+            max-width: 450px;
+            margin: 0 auto;
+        }
+
+        /* Content Boxes */
+        .content-box {
+            background: white;
+            border-radius: var(--radius);
+            padding: 1.8rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow);
+            border-left: 5px solid var(--primary);
+        }
+
+        .content-box h3 {
+            color: var(--primary);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .content-box ul, .content-box ol {
+            margin-left: 1.2rem;
+            margin-top: 0.5rem;
+        }
+
+        .content-box li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+            color: #334155;
+            font-size: 0.95rem;
+        }
+
+        .example-box {
+            background: #f1f5f9;
+            border-radius: 10px;
+            padding: 1rem 1.2rem;
+            margin-top: 0.8rem;
+            font-size: 0.9rem;
+            color: #475569;
+            border-left: 4px solid var(--accent);
+        }
+
+        /* Profile Card */
+        .profile-card {
+            background: white;
+            border-radius: 24px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+            max-width: 650px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .profile-avatar {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            margin: 0 auto 1.2rem auto;
+            box-shadow: 0 8px 20px rgba(59, 59, 152, 0.2);
+        }
+
+        .profile-info {
+            text-align: left;
+            margin-top: 2rem;
+        }
+
+        .profile-info-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px dashed #e2e8f0;
+            font-size: 0.95rem;
+        }
+
+        .profile-info-item span:first-child {
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* Buttons & Forms */
+        .btn-action {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 1rem;
+            width: 100%;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .btn-action:hover {
+            background: #2c2c78;
+            box-shadow: 0 6px 15px rgba(59, 59, 152, 0.3);
+        }
+
+        .btn-success { background: #25D366; }
+        .btn-success:hover { background: #1ebd59; }
+
+        .btn-danger { background: var(--danger); }
+        .btn-danger:hover { background: #c0392b; }
+
+        .form-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            max-width: 750px;
+            margin: 1rem auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 15px; 
+            outline: none;
+            transition: 0.2s;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+        }
+
+        /* Option Style */
+        .eval-option {
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 1rem;
+            margin-bottom: 0.8rem;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .eval-option:hover, .eval-option.selected-normal {
+            background: rgba(59, 59, 152, 0.08);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* Review Item Style */
+        .review-item {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 1.2rem;
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+
+        .review-item.correct-bg { border-left: 6px solid var(--primary-light); }
+        .review-item.wrong-bg { border-left: 6px solid var(--danger); }
+
+        /* Table Style */
+        .table-responsive {
+            overflow-x: auto;
+            margin-top: 1rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 0.9rem;
+        }
+
+        th {
+            background-color: var(--primary);
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:hover { background-color: #f8fafc; }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: #94a3b8;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: auto;
+            font-size: 0.85rem;
+        }
+
+        footer p { color: white; opacity: 0.8; }
+
+        @media (max-width: 600px) {
+            header { padding: 0.8rem 1rem; }
+            .nav-container { flex-direction: column; }
+            .nav-btn { font-size: 0.8rem; padding: 6px 14px; }
+            .hero-card { padding: 2rem 1rem; }
+            .hero-card h1 { font-size: 1.8rem; }
+            .sub-btn { font-size: 0.8rem; padding: 8px 10px; }
+            .profile-info-item { flex-direction: column; gap: 2px; }
+            .form-card { padding: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigasi Utama -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fa-solid fa-brain"></i>
+                <span>Informatika XI: BK</span>
+            </div>
+            <nav>
+                <button class="nav-btn active" onclick="switchTab('home')"><i class="fa-solid fa-house"></i> Beranda</button>
+                <button class="nav-btn" onclick="switchTab('materi')"><i class="fa-solid fa-book-open"></i> Materi BK</button>
+                <button class="nav-btn" onclick="switchTab('evaluasi')"><i class="fa-solid fa-pen-to-square"></i> Evaluasi</button>
+                <button class="nav-btn" onclick="switchTab('profilGuru')"><i class="fa-solid fa-user-tie"></i> Profil Guru</button>
+                <button class="nav-btn teacher-btn" onclick="switchTab('hasilEvaluasi')"><i class="fa-solid fa-lock"></i> Panel Guru</button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- 1. Section Beranda -->
+        <section id="home" class="section active">
+            <div class="hero-card">
+                <span class="hero-badge"><i class="fa-solid fa-rocket"></i> Media Pembelajaran Digital</span>
+                <h1>Berpikir Komputasional & SDLC 🚀</h1>
+                <p>Platform interaktif eksplorasi Informatika Kelas XI. Pelajari konsep Berpikir Komputasional, Siklus SDLC, Strategi Algoritmik, hingga Hash Table secara terstruktur dan fleksibel.</p>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="num">4 Bab</div>
+                        <div class="label">Modul Utama</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="num">20 Soal PG</div>
+                        <div class="label">Evaluasi Interaktif</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="num">5 Soal Esai</div>
+                        <div class="label">Uji Pemahaman</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-header">
+                <div class="section-title">
+                    <i class="fa-solid fa-compass" style="color: var(--primary-light);"></i>
+                    <span>Akses Cepat Modul Pembelajaran</span>
+                </div>
+            </div>
+
+            <div class="grid-cards">
+                <div class="card" onclick="switchTab('materi')" style="cursor:pointer">
+                    <div>
+                        <div class="icon-wrapper"><i class="fa-solid fa-book-bookmark"></i></div>
+                        <h3>Modul Materi BK</h3>
+                        <p>Akses pembahasan Bab 1 sampai Bab 4 secara lengkap, terstruktur, dan mudah dipahami.</p>
+                    </div>
+                    <div class="card-footer">
+                        <span>Buka Materi</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <div class="card" onclick="switchTab('evaluasi')" style="cursor:pointer">
+                    <div>
+                        <div class="icon-wrapper" style="color: var(--accent); background: rgba(45,152,218,0.1);"><i class="fa-solid fa-clipboard-check"></i></div>
+                        <h3>Ujian & Evaluasi</h3>
+                        <p>Uji pemahaman Anda per bab dengan latihan pilihan ganda dan pertanyaan esai interaktif.</p>
+                    </div>
+                    <div class="card-footer" style="color: var(--accent);">
+                        <span>Mulai Ujian</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <div class="card" onclick="switchTab('profilGuru')" style="cursor:pointer">
+                    <div>
+                        <div class="icon-wrapper" style="color: var(--secondary); background: rgba(247,183,49,0.1);"><i class="fa-solid fa-id-card"></i></div>
+                        <h3>Profil Pengajar</h3>
+                        <p>Informasi detail pengampu mata pelajaran Informatika dan media komunikasi langsung.</p>
+                    </div>
+                    <div class="card-footer" style="color: var(--secondary);">
+                        <span>Lihat Profil</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <div class="card" onclick="switchTab('hasilEvaluasi')" style="cursor:pointer">
+                    <div>
+                        <div class="icon-wrapper" style="color: var(--danger); background: rgba(235,59,90,0.1);"><i class="fa-solid fa-user-shield"></i></div>
+                        <h3>Portal Guru</h3>
+                        <p>Area terproteksi khusus guru untuk memantau rekap nilai siswa dan kunci jawaban.</p>
+                    </div>
+                    <div class="card-footer" style="color: var(--danger);">
+                        <span>Akses Khusus</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Section Materi BK -->
+        <section id="materi" class="section">
+            <div class="section-header">
+                <div class="section-title">
+                    <i class="fa-solid fa-book-open" style="color: var(--primary-light);"></i>
+                    <span>Modul Materi Pembelajaran BK</span>
+                </div>
+            </div>
+
+            <div class="sub-nav">
+                <button class="sub-btn active" onclick="switchSubTab('materi', 'materiBab1')">Bab 1</button>
+                <button class="sub-btn" onclick="switchSubTab('materi', 'materiBab2')">Bab 2</button>
+                <button class="sub-btn" onclick="switchSubTab('materi', 'materiBab3')">Bab 3</button>
+                <button class="sub-btn" onclick="switchSubTab('materi', 'materiBab4')">Bab 4</button>
+            </div>
+
+            <!-- Content Bab 1 -->
+            <div id="materiBab1" class="sub-content active">
+                <div class="inner-sub-nav">
+                    <button class="inner-sub-btn active" onclick="switchInnerSub('sub1')">1. 4 Langkah BK & SDLC</button>
+                    <button class="inner-sub-btn" onclick="switchInnerSub('sub2')">2. Hubungan BK & SDLC</button>
+                    <button class="inner-sub-btn" onclick="switchInnerSub('sub3')">3. Model Waterfall & Agile</button>
+                    <button class="inner-sub-btn" onclick="switchInnerSub('sub4')">4. Strategi Algoritmik</button>
+                    <button class="inner-sub-btn" onclick="switchInnerSub('sub5')">5. Hash Table</button>
+                </div>
+
+                <!-- Inner Sub 1: 4 Langkah BK & SDLC -->
+                <div id="sub1" class="inner-sub-content">
+                    <div class="content-box">
+                        <h3><i class="fa-solid fa-brain"></i> Pengertian Berpikir Komputasional</h3>
+                        <p>Berpikir Komputasional adalah cara berpikir sistematis untuk memecahkan masalah besar pengguna, lalu merancangnya menjadi alur langkah-langkah logis yang bisa diproses oleh komputer[cite: 2].</p>
+                    </div>
+
+                    <div class="content-box" style="border-color: var(--secondary);">
+                        <h3><i class="fa-solid fa-lightbulb"></i> 4 Langkah Utama Berpikir Komputasional</h3>
+                        <ul>
+                            <li><b>Dekomposisi:</b> Memecah masalah jadi bagian-bagian kecil yang lebih mudah diatasi[cite: 2].</li>
+                            <li><b>Pengenalan Pola:</b> Mencari pola atau kesamaan dari masalah yang pernah terjadi[cite: 2].</li>
+                            <li><b>Abstraksi:</b> Fokus pada hal penting dan mengabaikan detail yang tidak perlu[cite: 2].</li>
+                            <li><b>Algoritma:</b> Menyusun langkah-langkah jelas untuk menyelesaikan masalah[cite: 2].</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-box">
+                        <h3><i class="fa-solid fa-gears"></i> Pengertian SDLC</h3>
+                        <p><b>SDLC (Software Development Life Cycle)</b> adalah langkah-langkah terstruktur yang digunakan untuk membuat dan mengembangkan aplikasi/software dari awal hingga siap dipakai[cite: 2]. Secara sederhana, SDLC itu mirip seperti proses membangun rumah[cite: 2].</p>
+                    </div>
+
+                    <div class="content-box">
+                        <h3><i class="fa-solid fa-list-check"></i> 6 Tahapan SDLC (Rumus Kecepatan Mengingat: A-D-C-T-D-M)</h3>
+                        <ol>
+                            <li><b>Analisis Kebutuhan (Analisis):</b> Cari tahu langsung apa masalah yang dihadapi pengguna dan fitur apa saja yang mereka butuhkan[cite: 2].</li>
+                            <li><b>Perancangan Sistem (Desain):</b> Membuat sketsa tampilan aplikasi (UI/UX) dan alur logikanya (flowchart)[cite: 2].</li>
+                            <li><b>Pemrograman (Coding):</b> Menerjemahkan hasil desain menjadi aplikasi nyata menggunakan bahasa pemrograman[cite: 2].</li>
+                            <li><b>Pengujian (Testing):</b> Mencoba aplikasi untuk mencari dan memperbaiki bug (kesalahan)[cite: 2].</li>
+                            <li><b>Penerapan (Deployment):</b> Merilis aplikasi ke server atau Play Store/App Store[cite: 2].</li>
+                            <li><b>Pemeliharaan (Maintenance):</b> Terus memperbaiki error baru serta menambah fitur baru[cite: 2].</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Inner Sub 2: Hubungan BK & SDLC -->
+                <div id="sub2" class="inner-sub-content" style="display:none;">
+                    <div class="content-box" style="border-color: var(--primary-light);">
+                        <h3><i class="fa-solid fa-link"></i> Hubungan Berpikir Komputasional & SDLC</h3>
+                        <p style="margin-bottom: 1rem;">Setiap pilar berpikir komputasional diterapkan secara langsung pada tahapan pengembangan software[cite: 2]:</p>
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Pilar Berpikir Komputasional</th>
+                                        <th>Penerapan dalam Tahap SDLC</th>
+                                        <th>Penjelasan Sederhana</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><b>Dekomposisi</b>[cite: 2]</td>
+                                        <td>Tahap Analisis Kebutuhan[cite: 2]</td>
+                                        <td>Memecah masalah besar pengguna menjadi modul-modul kecil (Misal: Kasir dipecah jadi modul Catat Barang, Hitung Total, Cetak Struk)[cite: 2].</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Pengenalan Pola</b>[cite: 2]</td>
+                                        <td>Tahap Desain Sistem[cite: 2]</td>
+                                        <td>Melihat masalah yang mirip dengan program sebelumnya untuk menentukan alur logika/UI yang efektif[cite: 2].</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Abstraksi</b>[cite: 2]</td>
+                                        <td>Tahap Pemrograman (Coding)[cite: 2]</td>
+                                        <td>Menghilangkan detail tidak penting & fokus pada logika inti program agar kode tetap bersih dan efisien[cite: 2].</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Algoritma</b>[cite: 2]</td>
+                                        <td>Tahap Testing & Deployment[cite: 2]</td>
+                                        <td>Menyusun instruksi langkah demi langkah agar komputer tidak error saat pengujian dan perilisian[cite: 2].</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Inner Sub 3: Waterfall vs Agile -->
+                <div id="sub3" class="inner-sub-content" style="display:none;">
+                    <div class="content-box">
+                        <h3><i class="fa-solid fa-water"></i> Model Air Terjun (Waterfall Model)</h3>
+                        <p>Model pengembangan perangkat lunak yang mengikuti pendekatan linier dan berurutan[cite: 2]. Setiap tahapan harus diselesaikan secara menyeluruh sebelum melanjutkan ke tahapan berikutnya[cite: 2]. Tahapannya: Requirement Analysis, System Design, Coding, Testing, Deployment, Maintenance[cite: 2].</p>
+                    </div>
+
+                    <div class="content-box">
+                        <h3><i class="fa-solid fa-rotate"></i> Model Agile</h3>
+                        <p>Pendekatan pengembangan yang dilakukan secara fleksibel, cepat, dan bertahap (berulang-ulang dalam siklus kecil yang disebut <i>Sprint</i>)[cite: 2]. Tahapannya: Planning, Iteration Execution, Review & Feedback, Continuous Improvement[cite: 2].</p>
+                    </div>
+
+                    <div class="content-box" style="border-color: var(--danger);">
+                        <h3><i class="fa-solid fa-code-compare"></i> Perbandingan Waterfall vs Agile</h3>
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Model SDLC</th>
+                                        <th>Kelebihan</th>
+                                        <th>Kekurangan</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><b>Model Waterfall</b>[cite: 2]</td>
+                                        <td>Terencana & rapi (urut A ke Z), serta biaya/waktu mudah diprediksi dari awal[cite: 2].</td>
+                                        <td>Kaku (susah ubah fitur di tengah jalan) dan pengguna baru bisa mencoba setelah seluruh proyek selesai total[cite: 2].</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Model Agile</b>[cite: 2]</td>
+                                        <td>Sangat fleksibel (bebas ubah/tambah fitur) dan aplikasi bisa cepat dicoba versi awalnya[cite: 2].</td>
+                                        <td>Sulit memprediksi kapan selesai total, biaya bisa membengkak, dan dokumentasi kurang rapi[cite: 2].</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Inner Sub 4: Strategi Algoritmik -->
+                <div id="sub4" class="inner-sub-content" style="display:none;">
+                    <div class="content-box" style="border-color: #9b59b6;">
+                        <h3><i class="fa-solid fa-chess"></i> Strategi Algoritmik</h3>
+                        <p>Pendekatan atau teknik sistematis yang dirancang untuk membantu programmer memecahkan masalah komputasi yang rumit secara efisien, optimal, dan terstruktur.</p>
+                    </div>
+
+                    <div class="content-box">
+                        <h3><i class="fa-solid fa-bolt"></i> 1. Algoritma Greedy (Tamak)</h3>
+                        <p>Memecahkan masalah langkah demi langkah dengan selalu mengambil **keputusan terbaik yang terlihat saat itu (pilihan lokal optimal)** tanpa mempertimbangkan konsekuensi di masa depan.</p>
+                        <div class="example-box">
+                            <b>Contoh Kasus:</b> Kasir ingin memberikan kembalian Rp1.200 menggunakan koin yang ada (Rp1.000, Rp500, Rp200). Secara Greedy, kasir langsung mengambil koin terbesar pertama yaitu Rp1.000 (sisa Rp200), lalu mengambil koin Rp200. Hasilnya didapat 2 koin (Rp1.000 + Rp200).
+                        </div>
+                    </div>
+
+                    <div class="content-box">
+                        <h3><i class="fa-solid fa-cubes-stacked"></i> 2. Pemrograman Dinamis (Dynamic Programming)</h3>
+                        <p>Memecahkan masalah kompleks dengan membaginya menjadi sub-masalah kecil, lalu **menyimpan hasil perhitungannya ke dalam tabel memori (memoization)** agar tidak perlu dihitung ulang saat dibutuhkan kembali.</p>
+                        <div class="example-box">
+                            <b>Contoh Kasus:</b> Menghitung deret Fibonacci. Saat menghitung F(5), kita membutuhkan F(4) dan F(3). Nilai F(3) disimpan di memori. Saat nanti menghitung nilai lain yang membutuhkan F(3), komputer langsung mengambil nilai dari memori tanpa menghitungnya dari awal.
+                        </div>
+                    </div>
+
+                    <div class="content-box">
+                        <h3><i class="fa-solid fa-diagram-split"></i> 3. Divide and Conquer</h3>
+                        <p>Memecahkan masalah besar lewat 3 tahap: **Divide** (memecah masalah menjadi sub-masalah sejenis), **Conquer** (menyelesaikan sub-masalah), dan **Combine** (menggabungkan kembali solusinya).</p>
+                        <div class="example-box">
+                            <b>Contoh Kasus:</b> Pengurutan data Merge Sort pada daftar [8, 2, 5, 1]. Tahap Divide membagi array menjadi dua yaitu [8, 2] dan [5, 1]. Tahap Conquer mengurutkannya menjadi [2, 8] dan [1, 5]. Tahap Combine menggabungkannya kembali menjadi [1, 2, 5, 8].
+                        </div>
+                    </div>
+
+                    <div class="content-box">
+                        <h3><i class="fa-solid fa-route"></i> 4. Backtracking (Penelusuran Balik)</h3>
+                        <p>Mencoba jalur solusi satu per satu secara bertahap. Jika di tengah jalan langkah yang diambil ternyata **salah atau buntu**, algoritma akan **mundur (backtrack)** ke langkah sebelumnya dan mencoba jalur lain.</p>
+                        <div class="example-box">
+                            <b>Contoh Kasus:</b> Menyelesaikan permainan Labirin (Maze). Pemain berjalan ke arah kanan; jika menabrak tembok (buntu), pemain akan mundur satu langkah kembali ke persimpangan sebelumnya, lalu mencoba melangkah ke arah kiri.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Inner Sub 5: Hash Table -->
+                <div id="sub5" class="inner-sub-content" style="display:none;">
+                    <div class="content-box" style="border-color: #e67e22;">
+                        <h3><i class="fa-solid fa-hashtag"></i> Struktur Data: Hash Table</h3>
+                        <p><b>Hash Table (Tabel Hash)</b> adalah struktur data yang menyimpan pasangan **Key (Kunci Unik)** dan **Value (Nilai Data)** menggunakan **Hash Function** untuk pemetaan lokasi penyimpanan memori dengan waktu pencarian yang sangat cepat O(1).</p>
+                        
+                        <div class="example-box">
+                            <b>Contoh Kasus Pemetaan Data Sederhana:</b><br>
+                            - <i>Key:</i> "Rian" (Nama Siswa sebagai Kunci)<br>
+                            - <i>Hash Function:</i> f("Rian") menghitung angka indeks memori = 2<br>
+                            - <i>Value:</i> 90 (Nilai Ujian dipetakan dan disimpan di Slot Memori Array Indeks Ke-2)<br><br>
+                            Saat mencari nilai "Rian", sistem tidak perlu mencari dari indeks 0, melainkan langsung menjalankan fungsi hash dan mengambil nilai di slot indeks ke-2.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Bab 2 (Kosong) -->
+            <div id="materiBab2" class="sub-content">
+                <div class="empty-placeholder">
+                    <i class="fa-solid fa-folder-open"></i>
+                    <h3>Materi Bab 2 Belum Tersedia</h3>
+                    <p>Konten untuk Bab 2 saat ini masih kosong dan akan ditambahkan oleh guru pada pembaruan mendatang.</p>
+                </div>
+            </div>
+
+            <!-- Content Bab 3 (Kosong) -->
+            <div id="materiBab3" class="sub-content">
+                <div class="empty-placeholder">
+                    <i class="fa-solid fa-folder-open"></i>
+                    <h3>Materi Bab 3 Belum Tersedia</h3>
+                    <p>Konten untuk Bab 3 saat ini masih kosong dan akan ditambahkan oleh guru pada pembaruan mendatang.</p>
+                </div>
+            </div>
+
+            <!-- Content Bab 4 (Kosong) -->
+            <div id="materiBab4" class="sub-content">
+                <div class="empty-placeholder">
+                    <i class="fa-solid fa-folder-open"></i>
+                    <h3>Materi Bab 4 Belum Tersedia</h3>
+                    <p>Konten untuk Bab 4 saat ini masih kosong dan akan ditambahkan oleh guru pada pembaruan mendatang.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Section Evaluasi -->
+        <section id="evaluasi" class="section">
+            <div class="section-header">
+                <div class="section-title">
+                    <i class="fa-solid fa-pen-to-square" style="color: var(--primary-light);"></i>
+                    <span>Lembar Ujian & Evaluasi Pembelajaran</span>
+                </div>
+            </div>
+
+            <div class="sub-nav">
+                <button class="sub-btn active" onclick="switchSubTab('evaluasi', 'evalBab1')">Evaluasi Bab 1</button>
+                <button class="sub-btn" onclick="switchSubTab('evaluasi', 'evalBab2')">Evaluasi Bab 2</button>
+                <button class="sub-btn" onclick="switchSubTab('evaluasi', 'evalBab3')">Evaluasi Bab 3</button>
+                <button class="sub-btn" onclick="switchSubTab('evaluasi', 'evalBab4')">Evaluasi Bab 4</button>
+            </div>
+
+            <!-- Evaluasi Bab 1 -->
+            <div id="evalBab1" class="sub-content active">
+                <div id="evalFormStep" class="form-card">
+                    <h2 style="color: var(--primary); text-align: center; margin-bottom: 0.5rem;"><i class="fa-solid fa-file-pen"></i> Evaluasi Bab 1: Data Diri</h2>
+                    <p style="text-align: center; margin-bottom: 1.5rem; font-size: 0.9rem; color: var(--text-muted);">Isi nama dan kelas terlebih dahulu sebelum memulai evaluasi Bab 1 (20 Soal PG + 5 Soal Esai).</p>
+                    
+                    <div class="form-group">
+                        <label>Nama Lengkap</label>
+                        <input type="text" id="studentName" class="form-control" placeholder="Masukkan Nama Lengkap" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <label>Kelas</label>
+                        <input type="text" id="studentClass" class="form-control" placeholder="Contoh: XI Informatika 1" autocomplete="off">
+                    </div>
+                    <button class="btn-action" onclick="startEvaluation()"><i class="fa-solid fa-play"></i> Mulai Ujian Evaluasi Bab 1</button>
+                </div>
+
+                <div id="evalQuizStep" class="form-card" style="display: none;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; border-bottom: 2px solid #eee; padding-bottom: 0.5rem;">
+                        <div>
+                            <b id="displayStudentInfo">Siswa: -</b>
+                        </div>
+                        <span id="evalProgress" style="font-weight: bold; color: var(--primary);">PG (1/20)</span>
+                    </div>
+
+                    <h3 id="evalQuestionText" style="margin-bottom: 1.2rem; font-size: 1.05rem;">Pertanyaan PG akan muncul di sini...</h3>
+                    <div id="evalOptionsContainer"></div>
+
+                    <button id="btnNextEval" class="btn-action" onclick="nextEvalQuestion()">Soal PG Selanjutnya <i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+
+                <div id="evalEssayStep" class="form-card" style="display: none;">
+                    <h2 style="color: var(--primary); margin-bottom: 0.5rem;"><i class="fa-solid fa-pen"></i> Bagian II: Soal Esai Bab 1</h2>
+                    <p style="margin-bottom: 1.5rem; font-size: 0.9rem; color: var(--text-muted);">Jawablah 5 pertanyaan esai di bawah ini dengan singkat dan jelas!</p>
+
+                    <div id="essayContainer"></div>
+
+                    <button class="btn-action" onclick="finishEssay()"><i class="fa-solid fa-check-circle"></i> Selesaikan & Kirim Evaluasi</button>
+                </div>
+
+                <div id="evalResultStep" class="form-card" style="display: none; text-align: center;">
+                    <i class="fa-solid fa-circle-check" style="font-size: 4rem; color: var(--primary-light); margin-bottom: 1rem;"></i>
+                    <h2>Evaluasi Bab 1 Selesai! 🎉</h2>
+                    <p style="margin-top: 0.5rem; color: var(--text-muted);">Terima kasih telah menyelesaikan Evaluasi Bab 1.</p>
+                    
+                    <div style="background: #f1f5f9; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; text-align: left;">
+                        <p><b>Nama Siswa:</b> <span id="resName">-</span></p>
+                        <p><b>Kelas:</b> <span id="resClass">-</span></p>
+                        <p style="font-size: 1.1rem; color: var(--primary); margin-top: 0.5rem;"><b>Skor Pilihan Ganda: <span id="resPgScore">0</span> / 100</b></p>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);"><i>*Jawaban 5 Soal Esai telah direkam secara sistem.</i></p>
+                    </div>
+
+                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                        <button class="btn-action" style="background: var(--primary);" onclick="toggleReviewSection()"><i class="fa-solid fa-list-check"></i> Lihat Pembahasan PG</button>
+                        <button class="btn-action btn-success" onclick="sendToWhatsAppGuru()"><i class="fa-brands fa-whatsapp"></i> Kirim Laporan ke Guru</button>
+                    </div>
+
+                    <div id="reviewContainer" style="display: none; margin-top: 2rem;">
+                        <h3 style="color: var(--primary); margin-bottom: 1rem; border-top: 2px solid #eee; padding-top: 1rem;">
+                            <i class="fa-solid fa-book-open-reader"></i> Pembahasan Lengkap Pilihan Ganda
+                        </h3>
+                        <div id="reviewList"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Evaluasi Bab 2 (Kosong) -->
+            <div id="evalBab2" class="sub-content">
+                <div class="empty-placeholder">
+                    <i class="fa-solid fa-clipboard-list"></i>
+                    <h3>Evaluasi Bab 2 Belum Tersedia</h3>
+                    <p>Soal evaluasi Bab 2 masih kosong karena materi Bab 2 belum diinputkan.</p>
+                </div>
+            </div>
+
+            <!-- Evaluasi Bab 3 (Kosong) -->
+            <div id="evalBab3" class="sub-content">
+                <div class="empty-placeholder">
+                    <i class="fa-solid fa-clipboard-list"></i>
+                    <h3>Evaluasi Bab 3 Belum Tersedia</h3>
+                    <p>Soal evaluasi Bab 3 masih kosong karena materi Bab 3 belum diinputkan.</p>
+                </div>
+            </div>
+
+            <!-- Evaluasi Bab 4 (Kosong) -->
+            <div id="evalBab4" class="sub-content">
+                <div class="empty-placeholder">
+                    <i class="fa-solid fa-clipboard-list"></i>
+                    <h3>Evaluasi Bab 4 Belum Tersedia</h3>
+                    <p>Soal evaluasi Bab 4 masih kosong karena materi Bab 4 belum diinputkan.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Section Profil Guru -->
+        <section id="profilGuru" class="section">
+            <div class="profile-card">
+                <div class="profile-avatar">
+                    <i class="fa-solid fa-user-tie"></i>
+                </div>
+                <h2 style="color: var(--primary);">Kevin Jamal Syah, S.Pd</h2>
+                <p style="color: var(--text-muted); font-weight: 600;">Guru Mata Pelajaran Informatika</p>
+
+                <div class="profile-info">
+                    <div class="profile-info-item">
+                        <span>Nama Lengkap</span>
+                        <span>Kevin Jamal Syah, S.Pd</span>
+                    </div>
+                    <div class="profile-info-item">
+                        <span>Tempat, Tanggal Lahir</span>
+                        <span>Majalengka, 29 Maret 2001</span>
+                    </div>
+                    <div class="profile-info-item">
+                        <span>Domisili</span>
+                        <span>Cikijing</span>
+                    </div>
+                    <div class="profile-info-item">
+                        <span>WhatsApp</span>
+                        <span>082318451163</span>
+                    </div>
+                    <div class="profile-info-item">
+                        <span>Instagram</span>
+                        <span>@Notsuperman29</span>
+                    </div>
+                    <div class="profile-info-item">
+                        <span>Instansi</span>
+                        <span>MA BKMU Cikijing</span>
+                    </div>
+                </div>
+
+                <div style="margin-top: 1.5rem; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                    <a href="https://wa.me/6282318451163" target="_blank" class="btn-action btn-success" style="width: auto;">
+                        <i class="fa-brands fa-whatsapp"></i> Hubungi via WA
+                    </a>
+                    <a href="https://instagram.com/Notsuperman29" target="_blank" class="btn-action" style="background: #e1306c; width: auto;">
+                        <i class="fa-brands fa-instagram"></i> Instagram
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Section Hasil Evaluasi -->
+        <section id="hasilEvaluasi" class="section">
+            <div id="teacherLoginForm" class="form-card" style="max-width: 400px; text-align: center;">
+                <i class="fa-solid fa-user-lock" style="font-size: 3rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                <h2 style="color: var(--primary); margin-bottom: 0.5rem;">Login Khusus Guru</h2>
+                <p style="font-size: 0.85rem; margin-bottom: 1.5rem; color: var(--text-muted);">Masukkan username & password untuk melihat rekap nilai dan kunci jawaban.</p>
+                
+                <div class="form-group">
+                    <label>Username Guru</label>
+                    <input type="text" id="teacherUser" class="form-control" placeholder="Username">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="teacherPass" class="form-control" placeholder="Password">
+                </div>
+                <p id="loginError" style="color: var(--danger); font-weight: bold; margin-bottom: 1rem; display: none;">Username atau Password salah!</p>
+                <button class="btn-action" onclick="authTeacher()">Masuk Sistem</button>
+            </div>
+
+            <div id="teacherContent" style="display: none;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                    <h2 style="color: var(--primary);"><i class="fa-solid fa-user-shield"></i> Panel Kelola Guru</h2>
+                    <button class="btn-action btn-danger" style="width: auto; margin:0; padding: 8px 16px;" onclick="logoutTeacher()"><i class="fa-solid fa-right-from-bracket"></i> Keluar</button>
+                </div>
+
+                <div class="sub-nav">
+                    <button class="sub-btn active" onclick="switchTeacherSubTab('tSub1')">Rekap Nilai Siswa</button>
+                    <button class="sub-btn" onclick="switchTeacherSubTab('tSub2')">Kunci Jawaban Evaluasi</button>
+                </div>
+
+                <div id="tSub1" class="sub-content active">
+                    <h3 style="color: var(--primary); margin-bottom: 1rem;"><i class="fa-solid fa-clock-rotate-left"></i> Rekap Nilai Siswa (Berurutan Pengerjaan)</h3>
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Nama Siswa</th>
+                                    <th>Kelas</th>
+                                    <th>Skor PG (Maks 100)</th>
+                                    <th>Status Esai</th>
+                                </tr>
+                            </thead>
+                            <tbody id="scoreTableBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div id="tSub2" class="sub-content">
+                    <h3 style="color: var(--primary); margin-bottom: 1rem;"><i class="fa-solid fa-key"></i> Kunci Jawaban & Pembahasan Bab 1</h3>
+                    <div class="content-box">
+                        <h4 style="color:var(--primary); margin-bottom:0.8rem;">A. Kunci Jawaban Pilihan Ganda (PG 1-20)</h4>
+                        <div id="teacherKeyListPG"></div>
+                    </div>
+                    <div class="content-box">
+                        <h4 style="color:var(--primary); margin-bottom:0.8rem;">B. Panduan Koreksi Esai (1-5)</h4>
+                        <div id="teacherKeyListEssay"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Aplikasi Media Pembelajaran Berpikir Komputasional &copy; 2026 | MA BKMU Cikijing</p>
+    </footer>
+
+    <script>
+        function switchTab(tabId) {
+            document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            const activeBtn = Array.from(document.querySelectorAll('.nav-btn')).find(
+                btn => btn.getAttribute('onclick') && btn.getAttribute('onclick').includes(tabId)
+            );
+            if(activeBtn) activeBtn.classList.add('active');
+        }
+
+        function switchSubTab(parentSectionId, subContentId) {
+            const parent = document.getElementById(parentSectionId);
+            parent.querySelectorAll('.sub-content').forEach(el => el.classList.remove('active'));
+            parent.querySelectorAll('.sub-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(subContentId).classList.add('active');
+            const activeSubBtn = Array.from(parent.querySelectorAll('.sub-btn')).find(
+                btn => btn.getAttribute('onclick') && btn.getAttribute('onclick').includes(subContentId)
+            );
+            if(activeSubBtn) activeSubBtn.classList.add('active');
+        }
+
+        function switchInnerSub(innerSubId) {
+            document.querySelectorAll('.inner-sub-content').forEach(el => el.style.display = 'none');
+            document.querySelectorAll('.inner-sub-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(innerSubId).style.display = 'block';
+            const activeBtn = Array.from(document.querySelectorAll('.inner-sub-btn')).find(
+                btn => btn.getAttribute('onclick') && btn.getAttribute('onclick').includes(innerSubId)
+            );
+            if(activeBtn) activeBtn.classList.add('active');
+        }
+
+        function switchTeacherSubTab(subId) {
+            document.querySelectorAll('#teacherContent .sub-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('#teacherContent .sub-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(subId).classList.add('active');
+            const activeSubBtn = Array.from(document.querySelectorAll('#teacherContent .sub-btn')).find(
+                btn => btn.getAttribute('onclick') && btn.getAttribute('onclick').includes(subId)
+            );
+            if(activeSubBtn) activeSubBtn.classList.add('active');
+        }
+
+        function authTeacher() {
+            const user = document.getElementById('teacherUser').value;
+            const pass = document.getElementById('teacherPass').value;
+            const errorMsg = document.getElementById('loginError');
+
+            if (user === 'Notsuperman29' && pass === 'Meletek25') {
+                errorMsg.style.display = 'none';
+                document.getElementById('teacherLoginForm').style.display = 'none';
+                document.getElementById('teacherContent').style.display = 'block';
+                document.getElementById('teacherUser').value = '';
+                document.getElementById('teacherPass').value = '';
+                renderTeacherData();
+            } else {
+                errorMsg.style.display = 'block';
+            }
+        }
+
+        function logoutTeacher() {
+            document.getElementById('teacherLoginForm').style.display = 'block';
+            document.getElementById('teacherContent').style.display = 'none';
+        }
+
+        let teacherDataList = [];
+
+        const evaluasiPG = [
+            { question: "1. Cara berpikir sistematis untuk memecahkan masalah besar pengguna lalu merancangnya menjadi alur logis komputer disebut...?", options: ["Pengrograman Komputer", "Berpikir Komputasional", "Sistem Komputer", "Algoritma Pemrograman"], answer: 1, explanation: "Berpikir Komputasional adalah metode pemecahan masalah sistematis melalui 4 langkah." },
+            { question: "2. Memecah masalah besar pengguna menjadi modul-modul kecil yang lebih mudah diatasi adalah pilar...?", options: ["Abstraksi", "Pengenalan Pola", "Dekomposisi", "Algoritma"], answer: 2, explanation: "Dekomposisi adalah proses membagi/memecah masalah kompleks menjadi bagian-bagian yang lebih kecil." },
+            { question: "3. Menghilangkan detail yang tidak penting dan hanya fokus pada logika inti program disebut...?", options: ["Abstraksi", "Dekomposisi", "Maintenance", "Coding"], answer: 0, explanation: "Abstraksi menyarikan hal penting dan mengabaikan detail tak relevan." },
+            { question: "4. Kepanjangan dari SDLC dalam dunia pengembangan perangkat lunak adalah...?", options: ["Software Development Life Cycle", "System Design Life Cycle", "Software Data Life Code", "Software Development Line Control"], answer: 0, explanation: "SDLC singkatan dari Software Development Life Cycle." },
+            { question: "5. Urutan rumus kecepatan mengingat 6 tahapan SDLC yang benar adalah...?", options: ["A-D-C-T-D-M", "A-C-D-T-M-D", "D-A-C-T-M-D", "A-D-T-C-D-M"], answer: 0, explanation: "A-D-C-T-D-M mewakili Analisis, Desain, Coding, Testing, Deployment, dan Maintenance." },
+            { question: "6. Tahap SDLC di mana pengembang mencari tahu langsung masalah pengguna dan fitur yang dibutuhkan adalah...?", options: ["Desain Sistem", "Coding", "Analisis Kebutuhan", "Pengujian"], answer: 2, explanation: "Analisis Kebutuhan bertujuan memahami masalah pengguna dan mengumpulkan daftar kebutuhan." },
+            { question: "7. Membuat sketsa tampilan aplikasi (UI/UX) dan alur logika (flowchart) dilakukan pada tahap...?", options: ["Testing", "Perancangan Sistem (Desain)", "Deployment", "Maintenance"], answer: 1, explanation: "Desain sistem merancang tampilan UI/UX dan alur logika flowchart." },
+            { question: "8. Menerjemahkan hasil desain menjadi aplikasi nyata menggunakan bahasa pemrograman disebut...?", options: ["Analisis", "Pemrograman (Coding)", "Deployment", "Dekomposisi"], answer: 1, explanation: "Coding/Pemrograman adalah tahap penerjemahan rancangan menjadi instruksi bahasa program." },
+            { question: "9. Mencoba aplikasi untuk mencari dan memperbaiki bug (kesalahan) dilakukan pada tahap...?", options: ["Testing (Pengujian)", "Deployment", "Maintenance", "Design"], answer: 0, explanation: "Testing menguji fungsi aplikasi agar dipastikan bebas dari bug/kesalahan." },
+            { question: "10. Merilis aplikasi ke Play Store atau App Store agar bisa digunakan publik merupakan tahapan...?", options: ["Maintenance", "Coding", "Penerapan (Deployment)", "Testing"], answer: 2, explanation: "Deployment adalah proses peluncuran/perilisan aplikasi ke pengguna publik." },
+            { question: "11. Memperbaiki error baru yang muncul serta menambah fitur baru di masa depan merupakan tahap...?", options: ["Maintenance (Pemeliharaan)", "Analisis", "Testing", "Deployment"], answer: 0, explanation: "Maintenance adalah perawatan aplikasi setelah rilis." },
+            { question: "12. Penerapan pilar Dekomposisi dalam SDLC biasanya terjadi pada tahap...?", options: ["Tahap Maintenance", "Tahap Analisis Kebutuhan", "Tahap Testing", "Tahap Deployment"], answer: 1, explanation: "Dekomposisi diterapkan saat Analisis Kebutuhan untuk memecah masalah besar menjadi modul kecil." },
+            { question: "13. Model SDLC yang mengikuti pendekatan linier, urut, dan kaku adalah model...?", options: ["Model Agile", "Model Waterfall (Air Terjun)", "Model Rapid", "Model Spiral"], answer: 1, explanation: "Model Waterfall bersifat linier/berurutan dari A ke Z." },
+            { question: "14. Pengembangan software yang fleksibel, cepat, dan dilakukan dalam siklus pendek (Sprint) disebut...?", options: ["Model Waterfall", "Model Kaku", "Model Agile", "Model Linier"], answer: 2, explanation: "Model Agile berputar secara berulang (iterative) dalam Sprint pendek." },
+            { question: "15. Mengapa Model Agile biasanya lebih cepat dirasakan oleh pengguna dibanding Waterfall...?", options: ["Karena Agile bekerja dalam siklus-siklus kecil yang pendek (iterative)", "Karena Agile tidak perlu coding", "Karena Agile hanya untuk aplikasi game", "Karena Waterfall tidak memiliki tahap testing"], answer: 0, explanation: "Agile membagi pekerjaan dalam Sprint pendek sehingga fitur selesai bisa langsung dicoba." },
+            { question: "16. Strategi algoritmik yang selalu mengambil keputusan terbaik secara lokal pada setiap langkah dinamakan...?", options: ["Algoritma Greedy", "Dynamic Programming", "Backtracking", "Divide and Conquer"], answer: 0, explanation: "Algoritma Greedy memilih opsi terbaik yang terlihat pada saat itu (lokal)." },
+            { question: "17. Teknik memecah masalah menjadi sub-masalah kecil dan menyimpan hasil perhitungannya (memoization) agar tidak dihitung ulang disebut...?", options: ["Backtracking", "Dynamic Programming", "Algoritma Greedy", "Searching"], answer: 1, explanation: "Dynamic Programming memanfaatkan penyimpanan hasil (memoization) dari sub-masalah." },
+            { question: "18. Strategi yang memecah masalah besar, menyelesaikan sub-masalah, lalu menggabungkan solusinya adalah...?", options: ["Divide and Conquer", "Greedy", "Backtracking", "Maintenance"], answer: 0, explanation: "Divide and Conquer membagi masalah, menyelesaikan, lalu menggabungkan solusinya." },
+            { question: "19. Jika suatu alur pengerjaan menemui jalan buntu dan algoritma mundur kembali ke langkah sebelumnya, teknik ini disebut...?", options: ["Backtracking", "Greedy", "Waterfall", "Deployment"], answer: 0, explanation: "Backtracking mencoba jalan secara bertahap. Jika salah/buntu, algoritma akan mundur." },
+            { question: "20. Struktur data yang menyimpan pasangan Key dan Value menggunakan fungsi pemetaan lokasi memori yang sangat cepat dinamakan...?", options: ["Hash Table", "Array Biasa", "Stack", "Queue"], answer: 0, explanation: "Hash Table mengurutkan dan menyimpan data dalam format Key-Value menggunakan Hash Function." }
+        ];
+
+        const evaluasiEssay = [
+            { q: "1. Apa yang dimaksud dengan SDLC (Software Development Life Cycle)? Berikan analogi/perumpamaan sederhana untuk menjelaskan konsep ini!", key: "SDLC adalah langkah-langkah terstruktur untuk membuat/mengembangkan software dari awal hingga siap dipakai. Analoginya seperti membangun rumah." },
+            { q: "2. Bayangkan kamu sedang membuat aplikasi game. Jelaskan apa yang kamu lakukan pada tahap Pengujian (Testing) dan Pemeliharaan (Maintenance)!", key: "Testing: Mencoba game untuk mencari bug. Maintenance: Merawat game setelah rilis dengan membasmi bug baru & menambah fitur." },
+            { q: "3. Dalam berpikir komputasional, bagaimanakah penerapan Pengenalan Pola saat pengembang berada di tahap Desain Sistem?", key: "Pengembang melihat masalah mirip dari program sebelumnya untuk menentukan alur logika/UI yang efektif." },
+            { q: "4. Mengapa aplikasi yang dikembangkan menggunakan Model Agile biasanya bisa lebih cepat dicoba oleh pengguna dibanding Waterfall?", key: "Karena Agile bekerja dalam siklus-siklus kecil pendek (iterative) sehingga fitur selesai bisa langsung dicoba." },
+            { q: "5. Sebutkan 1 kelebihan dan 1 kekurangan dari Model Waterfall!", key: "Kelebihan: Terencana & biaya/waktu mudah diprediksi. Kekurangan: Kaku & lama dicoba oleh pengguna." }
+        ];
+
+        let studentData = { name: "", class: "", pgScore: 0, selectedPGAnswers: [], essayAnswers: [] };
+        let currentEvalIndex = 0;
+        let selectedEvalOption = null;
+
+        function startEvaluation() {
+            const name = document.getElementById('studentName').value.trim();
+            const cls = document.getElementById('studentClass').value.trim();
+
+            if(!name || !cls) {
+                alert('Mohon isi Nama Lengkap dan Kelas terlebih dahulu!');
+                return;
+            }
+
+            studentData.name = name;
+            studentData.class = cls;
+            studentData.pgScore = 0;
+            studentData.selectedPGAnswers = [];
+            studentData.essayAnswers = [];
+            currentEvalIndex = 0;
+
+            document.getElementById('evalFormStep').style.display = 'none';
+            document.getElementById('evalQuizStep').style.display = 'block';
+            document.getElementById('displayStudentInfo').innerText = `Siswa: ${name} (${cls})`;
+
+            loadEvalQuestion();
+        }
+
+        function loadEvalQuestion() {
+            selectedEvalOption = null;
+            const q = evaluasiPG[currentEvalIndex];
+            document.getElementById('evalProgress').innerText = `PG (${currentEvalIndex + 1}/20)`;
+            document.getElementById('evalQuestionText').innerText = q.question;
+
+            const container = document.getElementById('evalOptionsContainer');
+            container.innerHTML = '';
+
+            q.options.forEach((opt, idx) => {
+                const div = document.createElement('div');
+                div.className = 'eval-option';
+                div.innerText = opt;
+                div.onclick = () => {
+                    document.querySelectorAll('.eval-option').forEach(el => el.classList.remove('selected-normal'));
+                    div.classList.add('selected-normal');
+                    selectedEvalOption = idx;
+                };
+                container.appendChild(div);
+            });
+        }
+
+        function nextEvalQuestion() {
+            if(selectedEvalOption === null) {
+                alert('Silakan pilih salah satu jawaban PG terlebih dahulu!');
+                return;
+            }
+
+            studentData.selectedPGAnswers.push(selectedEvalOption);
+            if(selectedEvalOption === evaluasiPG[currentEvalIndex].answer) {
+                studentData.pgScore += 5;
+            }
+
+            currentEvalIndex++;
+            if(currentEvalIndex < evaluasiPG.length) {
+                loadEvalQuestion();
+            } else {
+                document.getElementById('evalQuizStep').style.display = 'none';
+                document.getElementById('evalEssayStep').style.display = 'block';
+                loadEssayQuestions();
+            }
+        }
+
+        function loadEssayQuestions() {
+            const container = document.getElementById('essayContainer');
+            container.innerHTML = '';
+
+            evaluasiEssay.forEach((item, idx) => {
+                const div = document.createElement('div');
+                div.className = 'form-group';
+                div.style.marginBottom = '1.2rem';
+                div.innerHTML = `
+                    <label style="font-weight:bold; color:var(--primary);">${item.q}</label>
+                    <textarea id="essayInput_${idx}" class="form-control" rows="3" placeholder="Ketik jawabanmu di sini..."></textarea>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function finishEssay() {
+            studentData.essayAnswers = [];
+            let allFilled = true;
+
+            for(let i = 0; i < evaluasiEssay.length; i++) {
+                const val = document.getElementById(`essayInput_${i}`).value.trim();
+                if(!val) allFilled = false;
+                studentData.essayAnswers.push(val);
+            }
+
+            if(!allFilled) {
+                if(!confirm('Ada jawaban esai yang belum diisi. Tetap kumpulkan evaluasi?')) return;
+            }
+
+            finishEvaluation();
+        }
+
+        function finishEvaluation() {
+            document.getElementById('evalEssayStep').style.display = 'none';
+            document.getElementById('evalResultStep').style.display = 'block';
+
+            document.getElementById('resName').innerText = studentData.name;
+            document.getElementById('resClass').innerText = studentData.class;
+            document.getElementById('resPgScore').innerText = studentData.pgScore;
+
+            renderReviewList();
+
+            teacherDataList.push({
+                name: studentData.name,
+                class: studentData.class,
+                score: studentData.pgScore,
+                essayStatus: "Sudah Mengisi"
+            });
+        }
+
+        function sendToWhatsAppGuru() {
+            const phone = "6282318451163";
+            
+            // Menyusun daftar jawaban esai (1-5)
+            let essayFormattedText = "";
+            evaluasiEssay.forEach((item, idx) => {
+                const answerText = studentData.essayAnswers[idx] || "Tidak diisi";
+                essayFormattedText += `\n*Soal ${idx + 1}:* ${item.q}\n*Jawaban:* ${answerText}\n`;
+            });
+
+            // Template pesan WhatsApp lengkap
+            const textTemplate = `Assalamualaikum Wr Wb\nHalooo Pak, Saya *${studentData.name}* dari kelas *${studentData.class}* telah menyelesaikan Evaluasi Bab 1.\n\n` +
+                                 `📊 *HASIL EVALUASI:* \n` +
+                                 `- *Skor Pilihan Ganda:* ${studentData.pgScore} / 100\n\n` +
+                                 `📝 *JAWABAN ESAI:*` +
+                                 `${essayFormattedText}`;
+
+            const waUrl = `https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(textTemplate)}`;
+            window.open(waUrl, '_blank');
+        }
+
+        function toggleReviewSection() {
+            const container = document.getElementById('reviewContainer');
+            container.style.display = container.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function renderReviewList() {
+            const container = document.getElementById('reviewList');
+            container.innerHTML = '';
+
+            evaluasiPG.forEach((q, idx) => {
+                const userAns = studentData.selectedPGAnswers[idx];
+                const isCorrect = userAns === q.answer;
+
+                const item = document.createElement('div');
+                item.className = `review-item ${isCorrect ? 'correct-bg' : 'wrong-bg'}`;
+                item.innerHTML = `
+                    <p style="font-weight:bold; margin-bottom:0.4rem;">${q.question}</p>
+                    <p style="font-size:0.88rem; color:${isCorrect ? '#20bf6b' : '#eb3b5a'};">
+                        <b>Jawabanmu:</b> ${q.options[userAns]} ${isCorrect ? '✔ (Benar)' : '✖ (Salah)'}
+                    </p>
+                    ${!isCorrect ? `<p style="font-size:0.88rem; color:#20bf6b;"><b>Kunci Jawaban:</b> ${q.options[q.answer]}</p>` : ''}
+                    <div style="background:#f1f5f9; padding:0.8rem; border-radius:8px; margin-top:0.5rem; font-size:0.85rem; color:#475569;">
+                        <b>💡 Pembahasan:</b> ${q.explanation}
+                    </div>
+                `;
+                container.appendChild(item);
+            });
+        }
+
+        function renderTeacherData() {
+            const tableBody = document.getElementById('scoreTableBody');
+            tableBody.innerHTML = '';
+
+            if (teacherDataList.length === 0) {
+                tableBody.innerHTML = `<tr><td colspan="5" style="text-align:center; color:#888;">Belum ada siswa yang mengerjakan evaluasi.</td></tr>`;
+            } else {
+                teacherDataList.forEach((st, idx) => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td><b>${idx + 1}</b></td>
+                        <td>${st.name}</td>
+                        <td>${st.class}</td>
+                        <td><b>${st.score}</b></td>
+                        <td><span style="background:var(--primary-light); color:white; padding:4px 10px; border-radius:10px; font-size:0.8rem;">${st.essayStatus}</span></td>
+                    `;
+                    tableBody.appendChild(tr);
+                });
+            }
+
+            const keyPgContainer = document.getElementById('teacherKeyListPG');
+            keyPgContainer.innerHTML = '';
+            evaluasiPG.forEach((q, idx) => {
+                const div = document.createElement('div');
+                div.style.marginBottom = "0.8rem";
+                div.innerHTML = `
+                    <p><b>${idx + 1}. ${q.question}</b></p>
+                    <p style="color:var(--primary-light);"><b>Kunci:</b> ${q.options[q.answer]}</p>
+                `;
+                keyPgContainer.appendChild(div);
+            });
+
+            const keyEssayContainer = document.getElementById('teacherKeyListEssay');
+            keyEssayContainer.innerHTML = '';
+            evaluasiEssay.forEach((item, idx) => {
+                const div = document.createElement('div');
+                div.style.marginBottom = "1rem";
+                div.innerHTML = `
+                    <p><b>${item.q}</b></p>
+                    <p style="color:var(--primary); background:#f1f5f9; padding:8px; border-radius:6px; font-size:0.9rem;"><b>Jawaban Ideal:</b> ${item.key}</p>
+                `;
+                keyEssayContainer.appendChild(div);
+            });
+        }
+    </script>
+</body>
+</html>

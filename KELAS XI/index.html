@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Media Pembelajaran Berpikir Komputasional - Kelas XI Informatika</title>
+    <title>Media Pembelajaran Informatika - Kelas XI Kurikulum Merdeka</title>
     <!-- Google Fonts & FontAwesome -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fredoka+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -257,7 +257,7 @@
         .hero-card p {
             font-size: 1.05rem;
             opacity: 0.9;
-            max-width: 700px;
+            max-width: 750px;
             margin: 0 auto 1.8rem auto;
             line-height: 1.6;
         }
@@ -285,6 +285,73 @@
         .stat-item .label {
             font-size: 0.8rem;
             opacity: 0.8;
+        }
+
+        /* Home Overview Grid */
+        .materi-overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .materi-overview-card {
+            background: white;
+            border-radius: 20px;
+            padding: 1.8rem;
+            box-shadow: var(--shadow);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .materi-overview-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .materi-overview-card .bab-tag {
+            position: absolute;
+            top: 1.2rem;
+            right: 1.2rem;
+            background: rgba(59, 59, 152, 0.1);
+            color: var(--primary);
+            font-weight: 800;
+            font-size: 0.75rem;
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+
+        .materi-overview-card h3 {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 0.6rem;
+        }
+
+        .materi-overview-card p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .materi-overview-card ul {
+            list-style: none;
+            margin-bottom: 1.2rem;
+        }
+
+        .materi-overview-card ul li {
+            font-size: 0.85rem;
+            color: #475569;
+            margin-bottom: 0.4rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .materi-overview-card ul li i {
+            color: var(--primary-light);
+            font-size: 0.75rem;
         }
 
         /* Section Titles */
@@ -420,6 +487,13 @@
             display: flex;
             align-items: center;
             gap: 10px;
+        }
+
+        .content-box p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: #334155;
+            margin-bottom: 0.8rem;
         }
 
         .content-box ul, .content-box ol {
@@ -646,11 +720,11 @@
         <div class="nav-container">
             <div class="logo">
                 <i class="fa-solid fa-brain"></i>
-                <span>Informatika XI: BK</span>
+                <span>Informatika XI Kurikulum Merdeka</span>
             </div>
             <nav>
                 <button class="nav-btn active" onclick="switchTab('home')"><i class="fa-solid fa-house"></i> Beranda</button>
-                <button class="nav-btn" onclick="switchTab('materi')"><i class="fa-solid fa-book-open"></i> Materi BK</button>
+                <button class="nav-btn" onclick="switchTab('materi')"><i class="fa-solid fa-book-open"></i> Materi</button>
                 <button class="nav-btn" onclick="switchTab('evaluasi')"><i class="fa-solid fa-pen-to-square"></i> Evaluasi</button>
                 <button class="nav-btn" onclick="switchTab('profilGuru')"><i class="fa-solid fa-user-tie"></i> Profil Guru</button>
                 <button class="nav-btn teacher-btn" onclick="switchTab('hasilEvaluasi')"><i class="fa-solid fa-lock"></i> Panel Guru</button>
@@ -662,21 +736,21 @@
         <!-- 1. Section Beranda -->
         <section id="home" class="section active">
             <div class="hero-card">
-                <span class="hero-badge"><i class="fa-solid fa-rocket"></i> Media Pembelajaran Digital</span>
-                <h1>Berpikir Komputasional & SDLC 🚀</h1>
-                <p>Platform interaktif eksplorasi Informatika Kelas XI. Pelajari konsep Berpikir Komputasional, Siklus SDLC, Strategi Algoritmik, hingga Hash Table secara terstruktur dan fleksibel.</p>
+                <span class="hero-badge"><i class="fa-solid fa-rocket"></i> E-Learning Informatika Kelas XI</span>
+                <h1>Membangun Kecakapan Digital & Komputasional 🌐</h1>
+                <p>Platform E-Learning resmi Informatika Kelas XI Kurikulum Merdeka. Pelajari Berpikir Komputasional, Siklus SDLC, Literasi Digital, Pembuatan Vlog, hingga Platform Digital secara terstruktur.</p>
                 
                 <div class="hero-stats">
                     <div class="stat-item">
-                        <div class="num">4 Bab</div>
-                        <div class="label">Modul Utama</div>
+                        <div class="num">2 Bab Aktif</div>
+                        <div class="label">Modul Pembelajaran</div>
                     </div>
                     <div class="stat-item">
-                        <div class="num">20 Soal PG</div>
+                        <div class="num">40 Soal PG</div>
                         <div class="label">Evaluasi Interaktif</div>
                     </div>
                     <div class="stat-item">
-                        <div class="num">5 Soal Esai</div>
+                        <div class="num">10 Soal Esai</div>
                         <div class="label">Uji Pemahaman</div>
                     </div>
                 </div>
@@ -684,8 +758,46 @@
 
             <div class="section-header">
                 <div class="section-title">
+                    <i class="fa-solid fa-cubes" style="color: var(--primary-light);"></i>
+                    <span>Peta Alur Pembelajaran Kelas XI</span>
+                </div>
+            </div>
+
+            <div class="materi-overview-grid">
+                <!-- Overview Bab 1 -->
+                <div class="materi-overview-card">
+                    <span class="bab-tag">Bab 1</span>
+                    <h3>Berpikir Komputasional & SDLC</h3>
+                    <p>Memahami 4 pilar komputasional, alur pengembangan software SDLC (Waterfall vs Agile), strategi algoritmik, dan Hash Table.</p>
+                    <ul>
+                        <li><i class="fa-solid fa-circle-check"></i> 4 Langkah BK & 6 Tahapan SDLC</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Model Waterfall vs Agile</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Greedy, DP, Divide & Conquer, Backtracking</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Struktur Data Hash Table</li>
+                    </ul>
+                    <button class="btn-action" onclick="openMateriSub('materiBab1', 'sub1')">Buka Bab 1 <i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+
+                <!-- Overview Bab 2 -->
+                <div class="materi-overview-card">
+                    <span class="bab-tag">Bab 2</span>
+                    <h3>Literasi Digital</h3>
+                    <p>Memahami kecakapan dunia digital, pemanfaatan search engine, analisis hoaks, produksi konten & vlog, serta ekosistem platform digital.</p>
+                    <ul>
+                        <li><i class="fa-solid fa-circle-check"></i> Pengertian & 4 Pilar Literasi Digital</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Cara Kerja & Operator Mesin Pencarian</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Cek & Ricek Kebenaran Informasi (Stop Hoaks)</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Konten Digital, Peralatan, & Pembuatan Vlog</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Lokapasar, Perbankan Digital, & Dompet Digital</li>
+                    </ul>
+                    <button class="btn-action" style="background: var(--primary-light);" onclick="openMateriSub('materiBab2', 'bab2_sub1')">Buka Bab 2 <i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <div class="section-header">
+                <div class="section-title">
                     <i class="fa-solid fa-compass" style="color: var(--primary-light);"></i>
-                    <span>Akses Cepat Modul Pembelajaran</span>
+                    <span>Akses Cepat Platform</span>
                 </div>
             </div>
 
@@ -693,11 +805,11 @@
                 <div class="card" onclick="switchTab('materi')" style="cursor:pointer">
                     <div>
                         <div class="icon-wrapper"><i class="fa-solid fa-book-bookmark"></i></div>
-                        <h3>Modul Materi BK</h3>
-                        <p>Akses pembahasan Bab 1 sampai Bab 4 secara lengkap, terstruktur, dan mudah dipahami.</p>
+                        <h3>Modul Materi</h3>
+                        <p>Akses modul pembelajaran Bab 1 dan Bab 2 secara komprehensif dan interaktif.</p>
                     </div>
                     <div class="card-footer">
-                        <span>Buka Materi</span>
+                        <span>Buka Modul</span>
                         <i class="fa-solid fa-arrow-right"></i>
                     </div>
                 </div>
@@ -740,12 +852,12 @@
             </div>
         </section>
 
-        <!-- 2. Section Materi BK -->
+        <!-- 2. Section Materi -->
         <section id="materi" class="section">
             <div class="section-header">
                 <div class="section-title">
                     <i class="fa-solid fa-book-open" style="color: var(--primary-light);"></i>
-                    <span>Modul Materi Pembelajaran BK</span>
+                    <span>Modul Materi Pembelajaran Kelas XI</span>
                 </div>
             </div>
 
@@ -770,33 +882,33 @@
                 <div id="sub1" class="inner-sub-content">
                     <div class="content-box">
                         <h3><i class="fa-solid fa-brain"></i> Pengertian Berpikir Komputasional</h3>
-                        <p>Berpikir Komputasional adalah cara berpikir sistematis untuk memecahkan masalah besar pengguna, lalu merancangnya menjadi alur langkah-langkah logis yang bisa diproses oleh komputer[cite: 2].</p>
+                        <p>Berpikir Komputasional adalah cara berpikir sistematis untuk memecahkan masalah besar pengguna, lalu merancangnya menjadi alur langkah-langkah logis yang bisa diproses oleh komputer.</p>
                     </div>
 
                     <div class="content-box" style="border-color: var(--secondary);">
                         <h3><i class="fa-solid fa-lightbulb"></i> 4 Langkah Utama Berpikir Komputasional</h3>
                         <ul>
-                            <li><b>Dekomposisi:</b> Memecah masalah jadi bagian-bagian kecil yang lebih mudah diatasi[cite: 2].</li>
-                            <li><b>Pengenalan Pola:</b> Mencari pola atau kesamaan dari masalah yang pernah terjadi[cite: 2].</li>
-                            <li><b>Abstraksi:</b> Fokus pada hal penting dan mengabaikan detail yang tidak perlu[cite: 2].</li>
-                            <li><b>Algoritma:</b> Menyusun langkah-langkah jelas untuk menyelesaikan masalah[cite: 2].</li>
+                            <li><b>Dekomposisi:</b> Memecah masalah jadi bagian-bagian kecil yang lebih mudah diatasi.</li>
+                            <li><b>Pengenalan Pola:</b> Mencari pola atau kesamaan dari masalah yang pernah terjadi.</li>
+                            <li><b>Abstraksi:</b> Fokus pada hal penting dan mengabaikan detail yang tidak perlu.</li>
+                            <li><b>Algoritma:</b> Menyusun langkah-langkah jelas untuk menyelesaikan masalah.</li>
                         </ul>
                     </div>
 
                     <div class="content-box">
                         <h3><i class="fa-solid fa-gears"></i> Pengertian SDLC</h3>
-                        <p><b>SDLC (Software Development Life Cycle)</b> adalah langkah-langkah terstruktur yang digunakan untuk membuat dan mengembangkan aplikasi/software dari awal hingga siap dipakai[cite: 2]. Secara sederhana, SDLC itu mirip seperti proses membangun rumah[cite: 2].</p>
+                        <p><b>SDLC (Software Development Life Cycle)</b> adalah langkah-langkah terstruktur yang digunakan untuk membuat dan mengembangkan aplikasi/software dari awal hingga siap dipakai. Secara sederhana, SDLC itu mirip seperti proses membangun rumah.</p>
                     </div>
 
                     <div class="content-box">
                         <h3><i class="fa-solid fa-list-check"></i> 6 Tahapan SDLC (Rumus Kecepatan Mengingat: A-D-C-T-D-M)</h3>
                         <ol>
-                            <li><b>Analisis Kebutuhan (Analisis):</b> Cari tahu langsung apa masalah yang dihadapi pengguna dan fitur apa saja yang mereka butuhkan[cite: 2].</li>
-                            <li><b>Perancangan Sistem (Desain):</b> Membuat sketsa tampilan aplikasi (UI/UX) dan alur logikanya (flowchart)[cite: 2].</li>
-                            <li><b>Pemrograman (Coding):</b> Menerjemahkan hasil desain menjadi aplikasi nyata menggunakan bahasa pemrograman[cite: 2].</li>
-                            <li><b>Pengujian (Testing):</b> Mencoba aplikasi untuk mencari dan memperbaiki bug (kesalahan)[cite: 2].</li>
-                            <li><b>Penerapan (Deployment):</b> Merilis aplikasi ke server atau Play Store/App Store[cite: 2].</li>
-                            <li><b>Pemeliharaan (Maintenance):</b> Terus memperbaiki error baru serta menambah fitur baru[cite: 2].</li>
+                            <li><b>Analisis Kebutuhan (Analisis):</b> Cari tahu langsung apa masalah yang dihadapi pengguna dan fitur apa saja yang mereka butuhkan.</li>
+                            <li><b>Perancangan Sistem (Desain):</b> Membuat sketsa tampilan aplikasi (UI/UX) dan alur logikanya (flowchart).</li>
+                            <li><b>Pemrograman (Coding):</b> Menerjemahkan hasil desain menjadi aplikasi nyata menggunakan bahasa pemrograman.</li>
+                            <li><b>Pengujian (Testing):</b> Mencoba aplikasi untuk mencari dan memperbaiki bug (kesalahan).</li>
+                            <li><b>Penerapan (Deployment):</b> Merilis aplikasi ke server atau Play Store/App Store.</li>
+                            <li><b>Pemeliharaan (Maintenance):</b> Terus memperbaiki error baru serta menambah fitur baru.</li>
                         </ol>
                     </div>
                 </div>
@@ -805,7 +917,7 @@
                 <div id="sub2" class="inner-sub-content" style="display:none;">
                     <div class="content-box" style="border-color: var(--primary-light);">
                         <h3><i class="fa-solid fa-link"></i> Hubungan Berpikir Komputasional & SDLC</h3>
-                        <p style="margin-bottom: 1rem;">Setiap pilar berpikir komputasional diterapkan secara langsung pada tahapan pengembangan software[cite: 2]:</p>
+                        <p style="margin-bottom: 1rem;">Setiap pilar berpikir komputasional diterapkan secara langsung pada tahapan pengembangan software:</p>
                         <div class="table-responsive">
                             <table>
                                 <thead>
@@ -817,24 +929,24 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td><b>Dekomposisi</b>[cite: 2]</td>
-                                        <td>Tahap Analisis Kebutuhan[cite: 2]</td>
-                                        <td>Memecah masalah besar pengguna menjadi modul-modul kecil (Misal: Kasir dipecah jadi modul Catat Barang, Hitung Total, Cetak Struk)[cite: 2].</td>
+                                        <td><b>Dekomposisi</b></td>
+                                        <td>Tahap Analisis Kebutuhan</td>
+                                        <td>Memecah masalah besar pengguna menjadi modul-modul kecil (Misal: Kasir dipecah jadi modul Catat Barang, Hitung Total, Cetak Struk).</td>
                                     </tr>
                                     <tr>
-                                        <td><b>Pengenalan Pola</b>[cite: 2]</td>
-                                        <td>Tahap Desain Sistem[cite: 2]</td>
-                                        <td>Melihat masalah yang mirip dengan program sebelumnya untuk menentukan alur logika/UI yang efektif[cite: 2].</td>
+                                        <td><b>Pengenalan Pola</b></td>
+                                        <td>Tahap Desain Sistem</td>
+                                        <td>Melihat masalah yang mirip dengan program sebelumnya untuk menentukan alur logika/UI yang efektif.</td>
                                     </tr>
                                     <tr>
-                                        <td><b>Abstraksi</b>[cite: 2]</td>
-                                        <td>Tahap Pemrograman (Coding)[cite: 2]</td>
-                                        <td>Menghilangkan detail tidak penting & fokus pada logika inti program agar kode tetap bersih dan efisien[cite: 2].</td>
+                                        <td><b>Abstraksi</b></td>
+                                        <td>Tahap Pemrograman (Coding)</td>
+                                        <td>Menghilangkan detail tidak penting & fokus pada logika inti program agar kode tetap bersih dan efisien.</td>
                                     </tr>
                                     <tr>
-                                        <td><b>Algoritma</b>[cite: 2]</td>
-                                        <td>Tahap Testing & Deployment[cite: 2]</td>
-                                        <td>Menyusun instruksi langkah demi langkah agar komputer tidak error saat pengujian dan perilisian[cite: 2].</td>
+                                        <td><b>Algoritma</b></td>
+                                        <td>Tahap Testing & Deployment</td>
+                                        <td>Menyusun instruksi langkah demi langkah agar komputer tidak error saat pengujian dan perilisian.</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -846,12 +958,12 @@
                 <div id="sub3" class="inner-sub-content" style="display:none;">
                     <div class="content-box">
                         <h3><i class="fa-solid fa-water"></i> Model Air Terjun (Waterfall Model)</h3>
-                        <p>Model pengembangan perangkat lunak yang mengikuti pendekatan linier dan berurutan[cite: 2]. Setiap tahapan harus diselesaikan secara menyeluruh sebelum melanjutkan ke tahapan berikutnya[cite: 2]. Tahapannya: Requirement Analysis, System Design, Coding, Testing, Deployment, Maintenance[cite: 2].</p>
+                        <p>Model pengembangan perangkat lunak yang mengikuti pendekatan linier dan berurutan. Setiap tahapan harus diselesaikan secara menyeluruh sebelum melanjutkan ke tahapan berikutnya. Tahapannya: Requirement Analysis, System Design, Coding, Testing, Deployment, Maintenance.</p>
                     </div>
 
                     <div class="content-box">
                         <h3><i class="fa-solid fa-rotate"></i> Model Agile</h3>
-                        <p>Pendekatan pengembangan yang dilakukan secara fleksibel, cepat, dan bertahap (berulang-ulang dalam siklus kecil yang disebut <i>Sprint</i>)[cite: 2]. Tahapannya: Planning, Iteration Execution, Review & Feedback, Continuous Improvement[cite: 2].</p>
+                        <p>Pendekatan pengembangan yang dilakukan secara fleksibel, cepat, dan bertahap (berulang-ulang dalam siklus kecil yang disebut <i>Sprint</i>). Tahapannya: Planning, Iteration Execution, Review & Feedback, Continuous Improvement.</p>
                     </div>
 
                     <div class="content-box" style="border-color: var(--danger);">
@@ -867,14 +979,14 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td><b>Model Waterfall</b>[cite: 2]</td>
-                                        <td>Terencana & rapi (urut A ke Z), serta biaya/waktu mudah diprediksi dari awal[cite: 2].</td>
-                                        <td>Kaku (susah ubah fitur di tengah jalan) dan pengguna baru bisa mencoba setelah seluruh proyek selesai total[cite: 2].</td>
+                                        <td><b>Model Waterfall</b></td>
+                                        <td>Terencana & rapi (urut A ke Z), serta biaya/waktu mudah diprediksi dari awal.</td>
+                                        <td>Kaku (susah ubah fitur di tengah jalan) dan pengguna baru bisa mencoba setelah seluruh proyek selesai total.</td>
                                     </tr>
                                     <tr>
-                                        <td><b>Model Agile</b>[cite: 2]</td>
-                                        <td>Sangat fleksibel (bebas ubah/tambah fitur) dan aplikasi bisa cepat dicoba versi awalnya[cite: 2].</td>
-                                        <td>Sulit memprediksi kapan selesai total, biaya bisa membengkak, dan dokumentasi kurang rapi[cite: 2].</td>
+                                        <td><b>Model Agile</b></td>
+                                        <td>Sangat fleksibel (bebas ubah/tambah fitur) dan aplikasi bisa cepat dicoba versi awalnya.</td>
+                                        <td>Sulit memprediksi kapan selesai total, biaya bisa membengkak, dan dokumentasi kurang rapi.</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -891,7 +1003,7 @@
 
                     <div class="content-box">
                         <h3><i class="fa-solid fa-bolt"></i> 1. Algoritma Greedy (Tamak)</h3>
-                        <p>Memecahkan masalah langkah demi langkah dengan selalu mengambil **keputusan terbaik yang terlihat saat itu (pilihan lokal optimal)** tanpa mempertimbangkan konsekuensi di masa depan.</p>
+                        <p>Memecahkan masalah langkah demi langkah dengan selalu mengambil <b>keputusan terbaik yang terlihat saat itu (pilihan lokal optimal)</b> tanpa mempertimbangkan konsekuensi di masa depan.</p>
                         <div class="example-box">
                             <b>Contoh Kasus:</b> Kasir ingin memberikan kembalian Rp1.200 menggunakan koin yang ada (Rp1.000, Rp500, Rp200). Secara Greedy, kasir langsung mengambil koin terbesar pertama yaitu Rp1.000 (sisa Rp200), lalu mengambil koin Rp200. Hasilnya didapat 2 koin (Rp1.000 + Rp200).
                         </div>
@@ -899,7 +1011,7 @@
 
                     <div class="content-box">
                         <h3><i class="fa-solid fa-cubes-stacked"></i> 2. Pemrograman Dinamis (Dynamic Programming)</h3>
-                        <p>Memecahkan masalah kompleks dengan membaginya menjadi sub-masalah kecil, lalu **menyimpan hasil perhitungannya ke dalam tabel memori (memoization)** agar tidak perlu dihitung ulang saat dibutuhkan kembali.</p>
+                        <p>Memecahkan masalah kompleks dengan membaginya menjadi sub-masalah kecil, lalu <b>menyimpan hasil perhitungannya ke dalam tabel memori (memoization)</b> agar tidak perlu dihitung ulang saat dibutuhkan kembali.</p>
                         <div class="example-box">
                             <b>Contoh Kasus:</b> Menghitung deret Fibonacci. Saat menghitung F(5), kita membutuhkan F(4) dan F(3). Nilai F(3) disimpan di memori. Saat nanti menghitung nilai lain yang membutuhkan F(3), komputer langsung mengambil nilai dari memori tanpa menghitungnya dari awal.
                         </div>
@@ -907,7 +1019,7 @@
 
                     <div class="content-box">
                         <h3><i class="fa-solid fa-diagram-split"></i> 3. Divide and Conquer</h3>
-                        <p>Memecahkan masalah besar lewat 3 tahap: **Divide** (memecah masalah menjadi sub-masalah sejenis), **Conquer** (menyelesaikan sub-masalah), dan **Combine** (menggabungkan kembali solusinya).</p>
+                        <p>Memecahkan masalah besar lewat 3 tahap: <b>Divide</b> (memecah masalah menjadi sub-masalah sejenis), <b>Conquer</b> (menyelesaikan sub-masalah), dan <b>Combine</b> (menggabungkan kembali solusinya).</p>
                         <div class="example-box">
                             <b>Contoh Kasus:</b> Pengurutan data Merge Sort pada daftar [8, 2, 5, 1]. Tahap Divide membagi array menjadi dua yaitu [8, 2] dan [5, 1]. Tahap Conquer mengurutkannya menjadi [2, 8] dan [1, 5]. Tahap Combine menggabungkannya kembali menjadi [1, 2, 5, 8].
                         </div>
@@ -915,7 +1027,7 @@
 
                     <div class="content-box">
                         <h3><i class="fa-solid fa-route"></i> 4. Backtracking (Penelusuran Balik)</h3>
-                        <p>Mencoba jalur solusi satu per satu secara bertahap. Jika di tengah jalan langkah yang diambil ternyata **salah atau buntu**, algoritma akan **mundur (backtrack)** ke langkah sebelumnya dan mencoba jalur lain.</p>
+                        <p>Mencoba jalur solusi satu per satu secara bertahap. Jika di tengah jalan langkah yang diambil ternyata <b>salah atau buntu</b>, algoritma akan <b>mundur (backtrack)</b> ke langkah sebelumnya dan mencoba jalur lain.</p>
                         <div class="example-box">
                             <b>Contoh Kasus:</b> Menyelesaikan permainan Labirin (Maze). Pemain berjalan ke arah kanan; jika menabrak tembok (buntu), pemain akan mundur satu langkah kembali ke persimpangan sebelumnya, lalu mencoba melangkah ke arah kiri.
                         </div>
@@ -926,7 +1038,7 @@
                 <div id="sub5" class="inner-sub-content" style="display:none;">
                     <div class="content-box" style="border-color: #e67e22;">
                         <h3><i class="fa-solid fa-hashtag"></i> Struktur Data: Hash Table</h3>
-                        <p><b>Hash Table (Tabel Hash)</b> adalah struktur data yang menyimpan pasangan **Key (Kunci Unik)** dan **Value (Nilai Data)** menggunakan **Hash Function** untuk pemetaan lokasi penyimpanan memori dengan waktu pencarian yang sangat cepat O(1).</p>
+                        <p><b>Hash Table (Tabel Hash)</b> adalah struktur data yang menyimpan pasangan <b>Key (Kunci Unik)</b> dan <b>Value (Nilai Data)</b> menggunakan <b>Hash Function</b> untuk pemetaan lokasi penyimpanan memori dengan waktu pencarian yang sangat cepat O(1).</p>
                         
                         <div class="example-box">
                             <b>Contoh Kasus Pemetaan Data Sederhana:</b><br>
@@ -939,12 +1051,148 @@
                 </div>
             </div>
 
-            <!-- Content Bab 2 (Kosong) -->
+            <!-- Content Bab 2 (Literasi Digital) -->
             <div id="materiBab2" class="sub-content">
-                <div class="empty-placeholder">
-                    <i class="fa-solid fa-folder-open"></i>
-                    <h3>Materi Bab 2 Belum Tersedia</h3>
-                    <p>Konten untuk Bab 2 saat ini masih kosong dan akan ditambahkan oleh guru pada pembaruan mendatang.</p>
+                <div class="inner-sub-nav">
+                    <button class="inner-sub-btn active" onclick="switchInnerSub('bab2_sub1')">1. Pengertian Literasi Digital</button>
+                    <button class="inner-sub-btn" onclick="switchInnerSub('bab2_sub2')">2. Mesin Pencarian (Search Engine)</button>
+                    <button class="inner-sub-btn" onclick="switchInnerSub('bab2_sub3')">3. Cek & Ricek Kebenaran Informasi</button>
+                    <button class="inner-sub-btn" onclick="switchInnerSub('bab2_sub4')">4. Konten Digital</button>
+                    <button class="inner-sub-btn" onclick="switchInnerSub('bab2_sub5')">5. Platform Digital</button>
+                </div>
+
+                <!-- Sub 1: Pengertian Literasi Digital -->
+                <div id="bab2_sub1" class="inner-sub-content">
+                    <div class="content-box">
+                        <h3><i class="fa-solid fa-globe"></i> Pengertian Literasi Digital</h3>
+                        <p><b>Literasi Digital</b> adalah kemampuan untuk mengakses, memahami, menganalisis, mengkomunikasikan, dan menciptakan informasi secara kritis, bijak, dan aman menggunakan teknologi informasi dan komunikasi (TIK) dalam kehidupan bermasyarakat.</p>
+                        <p>Literasi digital tidak sekadar kecakapan teknis mengetik atau menggunakan smartphone, melainkan mencakup kesadaran etis, keamanan data pribadi, serta pemikiran kritis dalam menyaring jutaan informasi yang beredar setiap hari di dunia maya.</p>
+                    </div>
+
+                    <div class="content-box" style="border-color: var(--primary-light);">
+                        <h3><i class="fa-solid fa-shield-halved"></i> 4 Pilar Utama Literasi Digital (Kemkominfo)</h3>
+                        <ul>
+                            <li><b>Digital Skills (Kecakapan Digital):</b> Kemampuan dasar menggunakan perangkat keras & lunak TIK serta sistem operasi digital.</li>
+                            <li><b>Digital Culture (Budaya Digital):</b> Kemampuan membangun wawasan kebangsaan, Pancasila, dan Bhinneka Tunggal Ika dalam berinteraksi di ruang digital.</li>
+                            <li><b>Digital Ethics (Etika Digital):</b> Kemampuan menyadari, mengadaptasi, dan menerapkan etika berinternet (Netiquette) saat berkomunikasi online.</li>
+                            <li><b>Digital Safety (Keamanan Digital):</b> Kemampuan mengenali, menerapkan, dan meningkatkan kesadaran perlindungan data pribadi dan keamanan siber.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Sub 2: Mesin Pencarian -->
+                <div id="bab2_sub2" class="inner-sub-content" style="display:none;">
+                    <div class="content-box" style="border-color: var(--accent);">
+                        <h3><i class="fa-solid fa-magnifying-glass"></i> Mesin Pencarian (Search Engine)</h3>
+                        <p><b>Mesin Pencari (Search Engine)</b> adalah program berbasis web yang dirancang untuk mencari informasi di World Wide Web (WWW) berdasarkan kata kunci (keywords) yang dimasukkan pengguna (Contoh: Google, Bing, DuckDuckGo).</p>
+                        
+                        <h4 style="margin-top:1rem; color:var(--primary);">3 Tahap Cara Kerja Mesin Pencari:</h4>
+                        <ol>
+                            <li><b>Crawling:</b> Bot/spider menjelajahi seluruh halaman web di internet untuk mengumpulkan data tautan.</li>
+                            <li><b>Indexing:</b> Menyimpan dan mengorganisasi konten halaman web ke dalam basis data raksasa.</li>
+                            <li><b>Ranking:</b> Menampilkan daftar hasil pencarian yang paling relevan berdasarkan algoritma pemeringkatan.</li>
+                        </ol>
+                    </div>
+
+                    <div class="content-box">
+                        <h3><i class="fa-solid fa-code"></i> Simbol Operator Pencarian Tingkat Lanjut (Advanced Search)</h3>
+                        <ul>
+                            <li><b>Tanda Petik ("..."):</b> Mencari frasa persis secara spesifik. (Contoh: <code>"Literasi Digital Kelas 11"</code>)</li>
+                            <li><b>Operator site:</b> Membatasi pencarian hanya pada situs web tertentu. (Contoh: <code>Informatika site:kemdikbud.go.id</code>)</li>
+                            <li><b>Operator filetype:</b> Mencari format dokumen spesifik. (Contoh: <code>Modul SDLC filetype:pdf</code>)</li>
+                            <li><b>Tanda Minus (-):</b> Mengabaikan kata tertentu dari pencarian. (Contoh: <code>Python -ular</code>)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Sub 3: Cek dan Ricek Kebenaran Informasi -->
+                <div id="bab2_sub3" class="inner-sub-content" style="display:none;">
+                    <div class="content-box" style="border-color: var(--danger);">
+                        <h3><i class="fa-solid fa-triangle-exclamation"></i> Cek & Ricek Kebenaran Informasi (Stop Hoaks)</h3>
+                        <p>Di era kelimpahan informasi (information overload), berita bohong (hoaks), fitnah, dan disinformasi dapat menyebar sangat cepat. Sebagai siswa kritis, kalian wajib memverifikasi setiap informasi sebelum membagikannya.</p>
+                        
+                        <h4 style="margin-top:1rem; color:var(--primary);">Ciri-Ciri Utama Berita Hoaks:</h4>
+                        <ul>
+                            <li>Judul sangat provokatif, heboh, atau menggunakan huruf kapital berlebihan.</li>
+                            <li>Tidak mencantumkan sumber berita, nama penulis, atau tanggal terbit yang jelas.</li>
+                            <li>Mendesak pembaca untuk segera menyebarkan pesan (Contoh: "Sebarkan pesan ini ke 10 grup!").</li>
+                            <li>Menggunakan foto atau video hasil suntingan/manipulasi yang diambil luar konteks.</li>
+                        </ul>
+
+                        <h4 style="margin-top:1rem; color:var(--primary);">Langkah Praktis Verifikasi Informasi (Fact-Checking):</h4>
+                        <ol>
+                            <li><b>Cek Sumber Resmi:</b> Pastikan berita berasal dari media terverifikasi Dewan Pers atau domain resmi pemerintah (.go.id).</li>
+                            <li><b>Gunakan Tools Verifikasi Gambar:</b> Manfaatkan <i>Google Reverse Image Search</i> untuk memeriksa keaslian foto.</li>
+                            <li><b>Gunakan Situs Cek Fakta:</b> Periksa klarifikasi berita di laman <code>turnbackhoax.id</code> atau <code>cekfakta.com</code>.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Sub 4: Konten Digital -->
+                <div id="bab2_sub4" class="inner-sub-content" style="display:none;">
+                    <div class="content-box" style="border-color: #9b59b6;">
+                        <h3><i class="fa-solid fa-photo-film"></i> Konten Digital & Jenis-Jenisnya</h3>
+                        <p><b>Konten Digital</b> adalah segala bentuk informasi berupa teks, visual, audio, atau video yang dibuat, dikirimkan, dan dikonsumsi dalam format media elektronik digital.</p>
+                        
+                        <h4 style="margin-top:0.8rem; color:var(--primary);">Jenis-Jenis Konten Digital:</h4>
+                        <ul>
+                            <li><b>Konten Teks:</b> Artikel blog, e-book, unggahan status sosial media, wawancara tertulis.</li>
+                            <li><b>Konten Visual / Gambar:</b> Foto, ilustrasi digital, infografis, komik digital, meme edukatif.</li>
+                            <li><b>Konten Audio:</b> Podcast, rekaman siaran radio streaming, musik digital, audiobook.</li>
+                            <li><b>Konten Video:</b> Vlog, video tutorial, animasi 2D/3D, reels, live streaming.</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-box" style="border-color: var(--accent);">
+                        <h3><i class="fa-solid fa-camera"></i> Peralatan Utama Pembuat Konten Digital</h3>
+                        <ul>
+                            <li><b>Kamera / Smartphone:</b> Perangkat keras utama penangkap gambar dan rekaman video (minimal kemampuan 1080p).</li>
+                            <li><b>Microphone External:</b> Menjamin kualitas rekaman suara jernih dan bebas dari noise (Microphone Clip-on / Shotgun / Condenser).</li>
+                            <li><b>Pencahayaan (Lighting):</b> Memastikan subjek terlihat terang dan profesional (Ring Light, Softbox, atau LED Panel).</li>
+                            <li><b>Penopang Kamera (Tripod / Gimbal):</b> Menjaga stabilitas gambar agar rekaman video tidak goyang (shaky).</li>
+                            <li><b>Software Editing:</b> Perangkat lunak pengolah potong video dan audio (CapCut, Adobe Premiere, Premiere Rush, Audacity).</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-box" style="border-color: var(--primary-light);">
+                        <h3><i class="fa-solid fa-video"></i> Alur Tahapan Pembuatan Vlog (Video Blog)</h3>
+                        <ol>
+                            <li><b>Pra-Produksi (Perencanaan):</b> Menentukan tema/topik vlog, menyusun kerangka naskah (storyboard), riset materi, serta menyiapkan lokasi rekaman.</li>
+                            <li><b>Produksi (Perekaman):</b> Mengambil gambar dan suara (shooting) sesuai alur storyboard dengan memperhatikan tata cahaya, audio, dan framing.</li>
+                            <li><b>Pasca-Produksi (Pengeditan):</b> Memotong bagian video tak perlu, menambahkan efek transisi, teks subtitle, musik latar (backsound), serta merender video akhir.</li>
+                            <li><b>Publikasi & Evaluasi:</b> Mengunggah vlog ke platform media sosial (YouTube/TikTok), membuat judul & thumbnail menarik, serta merespons interaksi penonton.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Sub 5: Platform Digital -->
+                <div id="bab2_sub5" class="inner-sub-content" style="display:none;">
+                    <div class="content-box" style="border-color: #e67e22;">
+                        <h3><i class="fa-solid fa-store"></i> 1. Lokapasar (Marketplace)</h3>
+                        <p><b>Lokapasar (Marketplace)</b> adalah platform digital berbasis situs web atau aplikasi mobile yang bertindak sebagai perantara online yang menghubungkan penjual dan pembeli secara langsung untuk bertransaksi jual-beli produk/jasa (Contoh: Shopee, Tokopedia, Bukalapak, Lazada).</p>
+                        <ul>
+                            <li><b>Sistem Rekber (Rekening Bersama):</b> Menjamin keamanan transaksi di mana uang pembeli ditampung dulu oleh platform sebelum diserahkan ke penjual setelah barang diterima.</li>
+                            <li><b>Manfaat Utama:</b> Jangkauan pasar sangat luas, variasi produk lengkap, serta kemudahan melacak status pengiriman barang secara real-time.</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-box" style="border-color: #27ae60;">
+                        <h3><i class="fa-solid fa-building-columns"></i> 2. Perbankan Digital (Digital Banking)</h3>
+                        <p><b>Perbankan Digital</b> adalah layanan perbankan yang mengotomatisasi seluruh kegiatan transaksi nasabah secara mandiri tanpa harus datang langsung ke kantor cabang fisik (Contoh: Mobile Banking BCA/Mandiri, Bank Digital Blu, Jenius, Seabank).</p>
+                        <ul>
+                            <li><b>Fitur Layanan:</b> Pembukaan rekening secara online via verifikasi wajah (KYC), transfer antarbank instan (BI-FAST), pembayaran tagihan rutin, dan pembuatan deposito digital.</li>
+                            <li><b>Keamanan Transaksi:</b> Memanfaatkan enkripsi SSL tingkat tinggi, autentikasi dua faktor (2FA), kode PIN, dan otorisasi biometrik (sidik jari/sidik wajah).</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-box" style="border-color: #2980b9;">
+                        <h3><i class="fa-solid fa-wallet"></i> 3. Dompet Digital (E-Wallet)</h3>
+                        <p><b>Dompet Digital (Electronic Wallet)</b> adalah peranti lunak berbasis aplikasi yang digunakan untuk menyimpan saldo uang elektronik serta memproses pembayaran uang secara nontunai (cashless) secara mudah dan praktis (Contoh: DANA, OVO, GoPay, ShopeePay, LinkAja).</p>
+                        <ul>
+                            <li><b>Standar QRIS (Quick Response Code Indonesian Standard):</b> Kode QR standar nasional yang menyatukan pembayaran dari seluruh aplikasi dompet digital dan mobile banking hanya dengan satu kali pemindaian barcode.</li>
+                            <li><b>Keunggulan E-Wallet:</b> Transaksi cepat tinggal scan, meminimalkan penggunaan uang tunai fisik, dan mendukung ekosistem pembayaran belanja digital harian.</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
@@ -985,76 +1233,133 @@
 
             <!-- Evaluasi Bab 1 -->
             <div id="evalBab1" class="sub-content active">
-                <div id="evalFormStep" class="form-card">
+                <div id="evalFormStep1" class="form-card">
                     <h2 style="color: var(--primary); text-align: center; margin-bottom: 0.5rem;"><i class="fa-solid fa-file-pen"></i> Evaluasi Bab 1: Data Diri</h2>
                     <p style="text-align: center; margin-bottom: 1.5rem; font-size: 0.9rem; color: var(--text-muted);">Isi nama dan kelas terlebih dahulu sebelum memulai evaluasi Bab 1 (20 Soal PG + 5 Soal Esai).</p>
                     
                     <div class="form-group">
                         <label>Nama Lengkap</label>
-                        <input type="text" id="studentName" class="form-control" placeholder="Masukkan Nama Lengkap" autocomplete="off">
+                        <input type="text" id="studentName1" class="form-control" placeholder="Masukkan Nama Lengkap" autocomplete="off">
                     </div>
                     <div class="form-group">
                         <label>Kelas</label>
-                        <input type="text" id="studentClass" class="form-control" placeholder="Contoh: XI Informatika 1" autocomplete="off">
+                        <input type="text" id="studentClass1" class="form-control" placeholder="Contoh: XI Informatika 1" autocomplete="off">
                     </div>
-                    <button class="btn-action" onclick="startEvaluation()"><i class="fa-solid fa-play"></i> Mulai Ujian Evaluasi Bab 1</button>
+                    <button class="btn-action" onclick="startEvaluation(1)"><i class="fa-solid fa-play"></i> Mulai Ujian Evaluasi Bab 1</button>
                 </div>
 
-                <div id="evalQuizStep" class="form-card" style="display: none;">
+                <div id="evalQuizStep1" class="form-card" style="display: none;">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; border-bottom: 2px solid #eee; padding-bottom: 0.5rem;">
                         <div>
-                            <b id="displayStudentInfo">Siswa: -</b>
+                            <b id="displayStudentInfo1">Siswa: -</b>
                         </div>
-                        <span id="evalProgress" style="font-weight: bold; color: var(--primary);">PG (1/20)</span>
+                        <span id="evalProgress1" style="font-weight: bold; color: var(--primary);">PG (1/20)</span>
                     </div>
 
-                    <h3 id="evalQuestionText" style="margin-bottom: 1.2rem; font-size: 1.05rem;">Pertanyaan PG akan muncul di sini...</h3>
-                    <div id="evalOptionsContainer"></div>
+                    <h3 id="evalQuestionText1" style="margin-bottom: 1.2rem; font-size: 1.05rem;">Pertanyaan PG akan muncul di sini...</h3>
+                    <div id="evalOptionsContainer1"></div>
 
-                    <button id="btnNextEval" class="btn-action" onclick="nextEvalQuestion()">Soal PG Selanjutnya <i class="fa-solid fa-arrow-right"></i></button>
+                    <button id="btnNextEval1" class="btn-action" onclick="nextEvalQuestion(1)">Soal PG Selanjutnya <i class="fa-solid fa-arrow-right"></i></button>
                 </div>
 
-                <div id="evalEssayStep" class="form-card" style="display: none;">
+                <div id="evalEssayStep1" class="form-card" style="display: none;">
                     <h2 style="color: var(--primary); margin-bottom: 0.5rem;"><i class="fa-solid fa-pen"></i> Bagian II: Soal Esai Bab 1</h2>
                     <p style="margin-bottom: 1.5rem; font-size: 0.9rem; color: var(--text-muted);">Jawablah 5 pertanyaan esai di bawah ini dengan singkat dan jelas!</p>
 
-                    <div id="essayContainer"></div>
+                    <div id="essayContainer1"></div>
 
-                    <button class="btn-action" onclick="finishEssay()"><i class="fa-solid fa-check-circle"></i> Selesaikan & Kirim Evaluasi</button>
+                    <button class="btn-action" onclick="finishEssay(1)"><i class="fa-solid fa-check-circle"></i> Selesaikan & Kirim Evaluasi Bab 1</button>
                 </div>
 
-                <div id="evalResultStep" class="form-card" style="display: none; text-align: center;">
+                <div id="evalResultStep1" class="form-card" style="display: none; text-align: center;">
                     <i class="fa-solid fa-circle-check" style="font-size: 4rem; color: var(--primary-light); margin-bottom: 1rem;"></i>
                     <h2>Evaluasi Bab 1 Selesai! 🎉</h2>
                     <p style="margin-top: 0.5rem; color: var(--text-muted);">Terima kasih telah menyelesaikan Evaluasi Bab 1.</p>
                     
                     <div style="background: #f1f5f9; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; text-align: left;">
-                        <p><b>Nama Siswa:</b> <span id="resName">-</span></p>
-                        <p><b>Kelas:</b> <span id="resClass">-</span></p>
-                        <p style="font-size: 1.1rem; color: var(--primary); margin-top: 0.5rem;"><b>Skor Pilihan Ganda: <span id="resPgScore">0</span> / 100</b></p>
+                        <p><b>Nama Siswa:</b> <span id="resName1">-</span></p>
+                        <p><b>Kelas:</b> <span id="resClass1">-</span></p>
+                        <p style="font-size: 1.1rem; color: var(--primary); margin-top: 0.5rem;"><b>Skor Pilihan Ganda: <span id="resPgScore1">0</span> / 100</b></p>
                         <p style="font-size: 0.85rem; color: var(--text-muted);"><i>*Jawaban 5 Soal Esai telah direkam secara sistem.</i></p>
                     </div>
 
                     <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                        <button class="btn-action" style="background: var(--primary);" onclick="toggleReviewSection()"><i class="fa-solid fa-list-check"></i> Lihat Pembahasan PG</button>
-                        <button class="btn-action btn-success" onclick="sendToWhatsAppGuru()"><i class="fa-brands fa-whatsapp"></i> Kirim Laporan ke Guru</button>
+                        <button class="btn-action" style="background: var(--primary);" onclick="toggleReviewSection(1)"><i class="fa-solid fa-list-check"></i> Lihat Pembahasan PG</button>
+                        <button class="btn-action btn-success" onclick="sendToWhatsAppGuru(1)"><i class="fa-brands fa-whatsapp"></i> Kirim Laporan ke Guru</button>
                     </div>
 
-                    <div id="reviewContainer" style="display: none; margin-top: 2rem;">
+                    <div id="reviewContainer1" style="display: none; margin-top: 2rem;">
                         <h3 style="color: var(--primary); margin-bottom: 1rem; border-top: 2px solid #eee; padding-top: 1rem;">
                             <i class="fa-solid fa-book-open-reader"></i> Pembahasan Lengkap Pilihan Ganda
                         </h3>
-                        <div id="reviewList"></div>
+                        <div id="reviewList1"></div>
                     </div>
                 </div>
             </div>
 
-            <!-- Evaluasi Bab 2 (Kosong) -->
+            <!-- Evaluasi Bab 2 -->
             <div id="evalBab2" class="sub-content">
-                <div class="empty-placeholder">
-                    <i class="fa-solid fa-clipboard-list"></i>
-                    <h3>Evaluasi Bab 2 Belum Tersedia</h3>
-                    <p>Soal evaluasi Bab 2 masih kosong karena materi Bab 2 belum diinputkan.</p>
+                <div id="evalFormStep2" class="form-card">
+                    <h2 style="color: var(--primary); text-align: center; margin-bottom: 0.5rem;"><i class="fa-solid fa-file-pen"></i> Evaluasi Bab 2: Data Diri</h2>
+                    <p style="text-align: center; margin-bottom: 1.5rem; font-size: 0.9rem; color: var(--text-muted);">Isi nama dan kelas terlebih dahulu sebelum memulai evaluasi Bab 2 (20 Soal PG + 5 Soal Esai).</p>
+                    
+                    <div class="form-group">
+                        <label>Nama Lengkap</label>
+                        <input type="text" id="studentName2" class="form-control" placeholder="Masukkan Nama Lengkap" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <label>Kelas</label>
+                        <input type="text" id="studentClass2" class="form-control" placeholder="Contoh: XI Informatika 1" autocomplete="off">
+                    </div>
+                    <button class="btn-action" onclick="startEvaluation(2)"><i class="fa-solid fa-play"></i> Mulai Ujian Evaluasi Bab 2</button>
+                </div>
+
+                <div id="evalQuizStep2" class="form-card" style="display: none;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; border-bottom: 2px solid #eee; padding-bottom: 0.5rem;">
+                        <div>
+                            <b id="displayStudentInfo2">Siswa: -</b>
+                        </div>
+                        <span id="evalProgress2" style="font-weight: bold; color: var(--primary);">PG (1/20)</span>
+                    </div>
+
+                    <h3 id="evalQuestionText2" style="margin-bottom: 1.2rem; font-size: 1.05rem;">Pertanyaan PG akan muncul di sini...</h3>
+                    <div id="evalOptionsContainer2"></div>
+
+                    <button id="btnNextEval2" class="btn-action" onclick="nextEvalQuestion(2)">Soal PG Selanjutnya <i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+
+                <div id="evalEssayStep2" class="form-card" style="display: none;">
+                    <h2 style="color: var(--primary); margin-bottom: 0.5rem;"><i class="fa-solid fa-pen"></i> Bagian II: Soal Esai Bab 2</h2>
+                    <p style="margin-bottom: 1.5rem; font-size: 0.9rem; color: var(--text-muted);">Jawablah 5 pertanyaan esai di bawah ini dengan singkat dan jelas!</p>
+
+                    <div id="essayContainer2"></div>
+
+                    <button class="btn-action" onclick="finishEssay(2)"><i class="fa-solid fa-check-circle"></i> Selesaikan & Kirim Evaluasi Bab 2</button>
+                </div>
+
+                <div id="evalResultStep2" class="form-card" style="display: none; text-align: center;">
+                    <i class="fa-solid fa-circle-check" style="font-size: 4rem; color: var(--primary-light); margin-bottom: 1rem;"></i>
+                    <h2>Evaluasi Bab 2 Selesai! 🎉</h2>
+                    <p style="margin-top: 0.5rem; color: var(--text-muted);">Terima kasih telah menyelesaikan Evaluasi Bab 2.</p>
+                    
+                    <div style="background: #f1f5f9; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; text-align: left;">
+                        <p><b>Nama Siswa:</b> <span id="resName2">-</span></p>
+                        <p><b>Kelas:</b> <span id="resClass2">-</span></p>
+                        <p style="font-size: 1.1rem; color: var(--primary); margin-top: 0.5rem;"><b>Skor Pilihan Ganda: <span id="resPgScore2">0</span> / 100</b></p>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);"><i>*Jawaban 5 Soal Esai telah direkam secara sistem.</i></p>
+                    </div>
+
+                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                        <button class="btn-action" style="background: var(--primary);" onclick="toggleReviewSection(2)"><i class="fa-solid fa-list-check"></i> Lihat Pembahasan PG</button>
+                        <button class="btn-action btn-success" onclick="sendToWhatsAppGuru(2)"><i class="fa-brands fa-whatsapp"></i> Kirim Laporan ke Guru</button>
+                    </div>
+
+                    <div id="reviewContainer2" style="display: none; margin-top: 2rem;">
+                        <h3 style="color: var(--primary); margin-bottom: 1rem; border-top: 2px solid #eee; padding-top: 1rem;">
+                            <i class="fa-solid fa-book-open-reader"></i> Pembahasan Lengkap Pilihan Ganda
+                        </h3>
+                        <div id="reviewList2"></div>
+                    </div>
                 </div>
             </div>
 
@@ -1151,7 +1456,8 @@
 
                 <div class="sub-nav">
                     <button class="sub-btn active" onclick="switchTeacherSubTab('tSub1')">Rekap Nilai Siswa</button>
-                    <button class="sub-btn" onclick="switchTeacherSubTab('tSub2')">Kunci Jawaban Evaluasi</button>
+                    <button class="sub-btn" onclick="switchTeacherSubTab('tSub2')">Kunci Jawaban Bab 1</button>
+                    <button class="sub-btn" onclick="switchTeacherSubTab('tSub3')">Kunci Jawaban Bab 2</button>
                 </div>
 
                 <div id="tSub1" class="sub-content active">
@@ -1161,6 +1467,7 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
+                                    <th>Materi Bab</th>
                                     <th>Nama Siswa</th>
                                     <th>Kelas</th>
                                     <th>Skor PG (Maks 100)</th>
@@ -1176,11 +1483,23 @@
                     <h3 style="color: var(--primary); margin-bottom: 1rem;"><i class="fa-solid fa-key"></i> Kunci Jawaban & Pembahasan Bab 1</h3>
                     <div class="content-box">
                         <h4 style="color:var(--primary); margin-bottom:0.8rem;">A. Kunci Jawaban Pilihan Ganda (PG 1-20)</h4>
-                        <div id="teacherKeyListPG"></div>
+                        <div id="teacherKeyListPG1"></div>
                     </div>
                     <div class="content-box">
                         <h4 style="color:var(--primary); margin-bottom:0.8rem;">B. Panduan Koreksi Esai (1-5)</h4>
-                        <div id="teacherKeyListEssay"></div>
+                        <div id="teacherKeyListEssay1"></div>
+                    </div>
+                </div>
+
+                <div id="tSub3" class="sub-content">
+                    <h3 style="color: var(--primary); margin-bottom: 1rem;"><i class="fa-solid fa-key"></i> Kunci Jawaban & Pembahasan Bab 2</h3>
+                    <div class="content-box">
+                        <h4 style="color:var(--primary); margin-bottom:0.8rem;">A. Kunci Jawaban Pilihan Ganda (PG 1-20)</h4>
+                        <div id="teacherKeyListPG2"></div>
+                    </div>
+                    <div class="content-box">
+                        <h4 style="color:var(--primary); margin-bottom:0.8rem;">B. Panduan Koreksi Esai (1-5)</h4>
+                        <div id="teacherKeyListEssay2"></div>
                     </div>
                 </div>
             </div>
@@ -1188,7 +1507,7 @@
     </main>
 
     <footer>
-        <p>Aplikasi Media Pembelajaran Berpikir Komputasional &copy; 2026 | MA BKMU Cikijing</p>
+        <p>Aplikasi Media Pembelajaran Informatika Kelas XI &copy; 2026 | MA BKMU Cikijing</p>
     </footer>
 
     <script>
@@ -1200,6 +1519,12 @@
                 btn => btn.getAttribute('onclick') && btn.getAttribute('onclick').includes(tabId)
             );
             if(activeBtn) activeBtn.classList.add('active');
+        }
+
+        function openMateriSub(babId, subId) {
+            switchTab('materi');
+            switchSubTab('materi', babId);
+            switchInnerSub(subId);
         }
 
         function switchSubTab(parentSectionId, subContentId) {
@@ -1214,10 +1539,11 @@
         }
 
         function switchInnerSub(innerSubId) {
-            document.querySelectorAll('.inner-sub-content').forEach(el => el.style.display = 'none');
-            document.querySelectorAll('.inner-sub-btn').forEach(btn => btn.classList.remove('active'));
+            const parentContent = document.getElementById(innerSubId).parentElement;
+            parentContent.querySelectorAll('.inner-sub-content').forEach(el => el.style.display = 'none');
+            parentContent.querySelectorAll('.inner-sub-btn').forEach(btn => btn.classList.remove('active'));
             document.getElementById(innerSubId).style.display = 'block';
-            const activeBtn = Array.from(document.querySelectorAll('.inner-sub-btn')).find(
+            const activeBtn = Array.from(parentContent.querySelectorAll('.inner-sub-btn')).find(
                 btn => btn.getAttribute('onclick') && btn.getAttribute('onclick').includes(innerSubId)
             );
             if(activeBtn) activeBtn.classList.add('active');
@@ -1257,7 +1583,8 @@
 
         let teacherDataList = [];
 
-        const evaluasiPG = [
+        // Evaluasi Bab 1 (BK & SDLC)
+        const evaluasiPG1 = [
             { question: "1. Cara berpikir sistematis untuk memecahkan masalah besar pengguna lalu merancangnya menjadi alur logis komputer disebut...?", options: ["Pengrograman Komputer", "Berpikir Komputasional", "Sistem Komputer", "Algoritma Pemrograman"], answer: 1, explanation: "Berpikir Komputasional adalah metode pemecahan masalah sistematis melalui 4 langkah." },
             { question: "2. Memecah masalah besar pengguna menjadi modul-modul kecil yang lebih mudah diatasi adalah pilar...?", options: ["Abstraksi", "Pengenalan Pola", "Dekomposisi", "Algoritma"], answer: 2, explanation: "Dekomposisi adalah proses membagi/memecah masalah kompleks menjadi bagian-bagian yang lebih kecil." },
             { question: "3. Menghilangkan detail yang tidak penting dan hanya fokus pada logika inti program disebut...?", options: ["Abstraksi", "Dekomposisi", "Maintenance", "Coding"], answer: 0, explanation: "Abstraksi menyarikan hal penting dan mengabaikan detail tak relevan." },
@@ -1280,7 +1607,7 @@
             { question: "20. Struktur data yang menyimpan pasangan Key dan Value menggunakan fungsi pemetaan lokasi memori yang sangat cepat dinamakan...?", options: ["Hash Table", "Array Biasa", "Stack", "Queue"], answer: 0, explanation: "Hash Table mengurutkan dan menyimpan data dalam format Key-Value menggunakan Hash Function." }
         ];
 
-        const evaluasiEssay = [
+        const evaluasiEssay1 = [
             { q: "1. Apa yang dimaksud dengan SDLC (Software Development Life Cycle)? Berikan analogi/perumpamaan sederhana untuk menjelaskan konsep ini!", key: "SDLC adalah langkah-langkah terstruktur untuk membuat/mengembangkan software dari awal hingga siap dipakai. Analoginya seperti membangun rumah." },
             { q: "2. Bayangkan kamu sedang membuat aplikasi game. Jelaskan apa yang kamu lakukan pada tahap Pengujian (Testing) dan Pemeliharaan (Maintenance)!", key: "Testing: Mencoba game untuk mencari bug. Maintenance: Merawat game setelah rilis dengan membasmi bug baru & menambah fitur." },
             { q: "3. Dalam berpikir komputasional, bagaimanakah penerapan Pengenalan Pola saat pengembang berada di tahap Desain Sistem?", key: "Pengembang melihat masalah mirip dari program sebelumnya untuk menentukan alur logika/UI yang efektif." },
@@ -1288,40 +1615,87 @@
             { q: "5. Sebutkan 1 kelebihan dan 1 kekurangan dari Model Waterfall!", key: "Kelebihan: Terencana & biaya/waktu mudah diprediksi. Kekurangan: Kaku & lama dicoba oleh pengguna." }
         ];
 
-        let studentData = { name: "", class: "", pgScore: 0, selectedPGAnswers: [], essayAnswers: [] };
-        let currentEvalIndex = 0;
-        let selectedEvalOption = null;
+        // Evaluasi Bab 2 (Literasi Digital Terupdate)
+        const evaluasiPG2 = [
+            { question: "1. Kemampuan mengakses, memahami, menganalisis, dan menciptakan informasi menggunakan TIK secara bijak dinamakan...?", options: ["Literasi Digital", "Berpikir Komputasional", "Digital Coding", "Pemrograman Web"], answer: 0, explanation: "Literasi Digital mencakup kemampuan mengakses, memahami, dan memproduksi informasi digital secara kritis." },
+            { question: "2. Pilar Literasi Digital yang berkaitan dengan pemahaman etika dan tata krama saat berinternet (Netiquette) adalah...?", options: ["Digital Skills", "Digital Culture", "Digital Ethics", "Digital Safety"], answer: 2, explanation: "Digital Ethics mengatur etika dan tata krama pengguna dalam berinteraksi di ruang digital." },
+            { question: "3. Tahap kerja mesin pencari dalam menjelajahi jutaan tautan web di seluruh dunia dinamakan...?", options: ["Indexing", "Crawling", "Ranking", "Searching"], answer: 1, explanation: "Crawling adalah proses robot pencari mengunjungi dan mengumpulkan halaman web." },
+            { question: "4. Jika ingin mencari dokumen PDF secara spesifik di Google, operator pencarian yang digunakan adalah...?", options: ["site:", "filetype:", "minus (-)", "tanda petik (\" \")"], answer: 1, explanation: "Operator filetype: digunakan membatasi hasil pencarian pada jenis format file tertentu." },
+            { question: "5. Salah satu ciri khas utama berita palsu atau hoaks adalah...?", options: ["Mencantumkan nama penulis terverifikasi", "Judul provokatif dan mendesak disebarkan", "Ditayangkan di domain resmi .go.id", "Disertai data sahih"], answer: 1, explanation: "Hoaks umumnya memiliki judul heboh, provokatif, dan meminta disebarkan secara instan." },
+            { question: "6. Di bawah ini yang BUKAN merupakan jenis konten digital berbasis visual adalah...?", options: ["Infografis", "Podcast", "Foto Digital", "Komik Digital"], answer: 1, explanation: "Podcast adalah jenis konten digital berbasis Audio." },
+            { question: "7. Perangkat keras yang berfungsi merekam suara agar jernih dan bebas noise saat pembuatan konten dinamakan...?", options: ["Lighting", "Microphone External", "Tripod", "Gimbal"], answer: 1, explanation: "Microphone external memastikan hasil rekaman audio bebas noise lingkungan." },
+            { question: "8. Istilah umum untuk blog berbentuk rekaman video yang mendokumentasikan kegiatan atau edukasi adalah...?", options: ["Podcast", "Vlog (Video Blog)", "Infografis", "E-Book"], answer: 1, explanation: "Vlog merupakan singkatan dari Video Blog." },
+            { question: "9. Menyusun kerangka naskah dan membuat storyboard pada proses pembuatan vlog dilakukan pada tahap...?", options: ["Produksi", "Pra-Produksi", "Pasca-Produksi", "Publikasi"], answer: 1, explanation: "Pra-Produksi mencakup alur perencanaan naskah dan pengerjaan storyboard." },
+            { question: "10. Memotong bagian video, memberi musik latar, dan menambahkan teks subtitle pada vlog dilakukan pada tahap...?", options: ["Pra-Produksi", "Pasca-Produksi", "Shooting", "Riset Materi"], answer: 1, explanation: "Pasca-Produksi adalah tahap pengeditan video (editing) setelah rekaman selesai." },
+            { question: "11. Platform digital perantara online yang menghubungkan penjual dan pembeli untuk bertransaksi dinamakan...?", options: ["Lokapasar (Marketplace)", "Perbankan Digital", "Dompet Digital", "Social Media"], answer: 0, explanation: "Lokapasar/Marketplace adalah wadah digital jual-beli barang/jasa online." },
+            { question: "12. Sistem keamanan pada lokapasar yang menampung uang pembeli sebelum diserahkan ke penjual adalah...?", options: ["Rekening Bersama (Rekber)", "Cash on Delivery", "Payload", "Crypto"], answer: 0, explanation: "Rekber menampung uang sampai pembeli mengonfirmasi penerimaan barang." },
+            { question: "13. Layanan otomatisasi transaksi perbankan secara mandiri tanpa datang ke kantor cabang dinamakan...?", options: ["Perbankan Digital", "Lokapasar", "Marketplace", "Infografis"], answer: 0, explanation: "Perbankan Digital memfasilitasi transaksi bank otomatis online mandiri." },
+            { question: "14. Kode verifikasi keamanan transaksi pembayaran perbankan/dompet digital yang tidak boleh dibagikan adalah...?", options: ["Kode OTP & PIN", "Nomor Rekening", "Nama Lengkap", "Alamat Email"], answer: 0, explanation: "OTP dan PIN bersifat rahasia sebagai otorisasi keamanan data finansial." },
+            { question: "15. Peranti lunak berbasis aplikasi untuk menyimpan saldo uang elektronik dan transaksi cashless dinamakan...?", options: ["Dompet Digital (E-Wallet)", "Sistem Operasi", "Web Crawler", "Vlog"], answer: 0, explanation: "Dompet Digital (E-Wallet) menyimpan saldo digital untuk pembayaran nontunai." },
+            { question: "16. Standar kode QR nasional Indonesia yang menyatukan seluruh pembayaran dompet digital dinamakan...?", options: ["QRIS", "BARCODE", "ISBN", "SERIAL CODE"], answer: 0, explanation: "QRIS diselenggarakan oleh Bank Indonesia sebagai standar nasional pembayaran QR." },
+            { question: "17. Contoh aplikasi dompet digital (E-Wallet) populer di Indonesia adalah...?", options: ["DANA, OVO, GoPay", "Shopee, Tokopedia", "BCA Mobile, Livin", "CapCut, Premiere"], answer: 0, explanation: "DANA, OVO, GoPay, dan ShopeePay tergolong sebagai Dompet Digital." },
+            { question: "18. Tindakan tidak etis mengambil atau menjiplak karya orang lain lalu mengklaimnya dinamakan...?", options: ["Plagiarisme", "Atribusi", "Vlogging", "Crawling"], answer: 0, explanation: "Plagiarisme adalah klaim karya orang lain tanpa menyebutkan sumber asli." },
+            { question: "19. Segala riwayat jejak postingan dan komentar yang ditinggalkan di internet dinamakan...?", options: ["Jejak Digital (Digital Footprint)", "Search Engine", "Cookies", "Cloud Storage"], answer: 0, explanation: "Jejak Digital memuat rekam jejak aktivitas pengguna di media digital." },
+            { question: "20. Etika sopan santun saat berkomunikasi online di internet dikenal dengan sebutan...?", options: ["Netiket (Netiquette)", "Cyberlaw", "Digital Skills", "Algoritma"], answer: 0, explanation: "Netiket mewakili norma sopan santun berinteraksi digital." }
+        ];
 
-        function startEvaluation() {
-            const name = document.getElementById('studentName').value.trim();
-            const cls = document.getElementById('studentClass').value.trim();
+        const evaluasiEssay2 = [
+            { q: "1. Sebutkan dan jelaskan secara singkat 4 jenis konten digital beserta contohnya masing-masing!", key: "1) Teks (Artikel), 2) Visual (Infografis/Foto), 3) Audio (Podcast), 4) Video (Vlog/Tutorial)." },
+            { q: "2. Urutkan dan jelaskan 4 tahapan alur pembuatan Vlog (Video Blog) dari awal sampai akhir!", key: "1) Pra-Produksi (Riset & Naskah), 2) Produksi (Perekaman/Shooting), 3) Pasca-Produksi (Editing/Potong Video), 4) Publikasi (Upload & Evaluasi)." },
+            { q: "3. Apakah yang dimaksud dengan Lokapasar (Marketplace) dan sebutkan bagaimana sistem Rekber menjaga keamanan transaksi!", key: "Lokapasar adalah platform perantara jual-beli online. Rekber menampung uang pembeli terlebih dahulu dan baru menyerahkannya ke penjual setelah barang diterima aman." },
+            { q: "4. Jelaskan perbedaan fungsi utama antara Perbankan Digital (Digital Banking) dan Dompet Digital (E-Wallet)!", key: "Perbankan Digital = Pengelolaan rekening bank penuh (deposito, transfer antarbank, pinjaman). Dompet Digital = Penyimpanan saldo elektronik harian untuk transaksi cashless instan." },
+            { q: "5. Apakah fungsi dari standar QRIS dalam transaksi nontunai di Indonesia?", key: "QRIS menyatukan seluruh pembayaran dari berbagai dompet digital dan mobile banking dalam satu kode QR yang standar." }
+        ];
+
+        let stateBab1 = { name: "", class: "", pgScore: 0, selectedPGAnswers: [], essayAnswers: [], currentEvalIndex: 0, selectedOption: null };
+        let stateBab2 = { name: "", class: "", pgScore: 0, selectedPGAnswers: [], essayAnswers: [], currentEvalIndex: 0, selectedOption: null };
+
+        function getState(babNum) {
+            return babNum === 1 ? stateBab1 : stateBab2;
+        }
+
+        function getEvaluasiPGData(babNum) {
+            return babNum === 1 ? evaluasiPG1 : evaluasiPG2;
+        }
+
+        function getEvaluasiEssayData(babNum) {
+            return babNum === 1 ? evaluasiEssay1 : evaluasiEssay2;
+        }
+
+        function startEvaluation(babNum) {
+            const name = document.getElementById(`studentName${babNum}`).value.trim();
+            const cls = document.getElementById(`studentClass${babNum}`).value.trim();
 
             if(!name || !cls) {
                 alert('Mohon isi Nama Lengkap dan Kelas terlebih dahulu!');
                 return;
             }
 
-            studentData.name = name;
-            studentData.class = cls;
-            studentData.pgScore = 0;
-            studentData.selectedPGAnswers = [];
-            studentData.essayAnswers = [];
-            currentEvalIndex = 0;
+            let st = getState(babNum);
+            st.name = name;
+            st.class = cls;
+            st.pgScore = 0;
+            st.selectedPGAnswers = [];
+            st.essayAnswers = [];
+            st.currentEvalIndex = 0;
 
-            document.getElementById('evalFormStep').style.display = 'none';
-            document.getElementById('evalQuizStep').style.display = 'block';
-            document.getElementById('displayStudentInfo').innerText = `Siswa: ${name} (${cls})`;
+            document.getElementById(`evalFormStep${babNum}`).style.display = 'none';
+            document.getElementById(`evalQuizStep${babNum}`).style.display = 'block';
+            document.getElementById(`displayStudentInfo${babNum}`).innerText = `Siswa: ${name} (${cls})`;
 
-            loadEvalQuestion();
+            loadEvalQuestion(babNum);
         }
 
-        function loadEvalQuestion() {
-            selectedEvalOption = null;
-            const q = evaluasiPG[currentEvalIndex];
-            document.getElementById('evalProgress').innerText = `PG (${currentEvalIndex + 1}/20)`;
-            document.getElementById('evalQuestionText').innerText = q.question;
+        function loadEvalQuestion(babNum) {
+            let st = getState(babNum);
+            let dataPG = getEvaluasiPGData(babNum);
+            st.selectedOption = null;
 
-            const container = document.getElementById('evalOptionsContainer');
+            const q = dataPG[st.currentEvalIndex];
+            document.getElementById(`evalProgress${babNum}`).innerText = `PG (${st.currentEvalIndex + 1}/20)`;
+            document.getElementById(`evalQuestionText${babNum}`).innerText = q.question;
+
+            const container = document.getElementById(`evalOptionsContainer${babNum}`);
             container.innerHTML = '';
 
             q.options.forEach((opt, idx) => {
@@ -1329,100 +1703,109 @@
                 div.className = 'eval-option';
                 div.innerText = opt;
                 div.onclick = () => {
-                    document.querySelectorAll('.eval-option').forEach(el => el.classList.remove('selected-normal'));
+                    container.querySelectorAll('.eval-option').forEach(el => el.classList.remove('selected-normal'));
                     div.classList.add('selected-normal');
-                    selectedEvalOption = idx;
+                    st.selectedOption = idx;
                 };
                 container.appendChild(div);
             });
         }
 
-        function nextEvalQuestion() {
-            if(selectedEvalOption === null) {
+        function nextEvalQuestion(babNum) {
+            let st = getState(babNum);
+            let dataPG = getEvaluasiPGData(babNum);
+
+            if(st.selectedOption === null) {
                 alert('Silakan pilih salah satu jawaban PG terlebih dahulu!');
                 return;
             }
 
-            studentData.selectedPGAnswers.push(selectedEvalOption);
-            if(selectedEvalOption === evaluasiPG[currentEvalIndex].answer) {
-                studentData.pgScore += 5;
+            st.selectedPGAnswers.push(st.selectedOption);
+            if(st.selectedOption === dataPG[st.currentEvalIndex].answer) {
+                st.pgScore += 5;
             }
 
-            currentEvalIndex++;
-            if(currentEvalIndex < evaluasiPG.length) {
-                loadEvalQuestion();
+            st.currentEvalIndex++;
+            if(st.currentEvalIndex < dataPG.length) {
+                loadEvalQuestion(babNum);
             } else {
-                document.getElementById('evalQuizStep').style.display = 'none';
-                document.getElementById('evalEssayStep').style.display = 'block';
-                loadEssayQuestions();
+                document.getElementById(`evalQuizStep${babNum}`).style.display = 'none';
+                document.getElementById(`evalEssayStep${babNum}`).style.display = 'block';
+                loadEssayQuestions(babNum);
             }
         }
 
-        function loadEssayQuestions() {
-            const container = document.getElementById('essayContainer');
+        function loadEssayQuestions(babNum) {
+            let dataEssay = getEvaluasiEssayData(babNum);
+            const container = document.getElementById(`essayContainer${babNum}`);
             container.innerHTML = '';
 
-            evaluasiEssay.forEach((item, idx) => {
+            dataEssay.forEach((item, idx) => {
                 const div = document.createElement('div');
                 div.className = 'form-group';
                 div.style.marginBottom = '1.2rem';
                 div.innerHTML = `
                     <label style="font-weight:bold; color:var(--primary);">${item.q}</label>
-                    <textarea id="essayInput_${idx}" class="form-control" rows="3" placeholder="Ketik jawabanmu di sini..."></textarea>
+                    <textarea id="essayInput_${babNum}_${idx}" class="form-control" rows="3" placeholder="Ketik jawabanmu di sini..."></textarea>
                 `;
                 container.appendChild(div);
             });
         }
 
-        function finishEssay() {
-            studentData.essayAnswers = [];
+        function finishEssay(babNum) {
+            let st = getState(babNum);
+            let dataEssay = getEvaluasiEssayData(babNum);
+            st.essayAnswers = [];
             let allFilled = true;
 
-            for(let i = 0; i < evaluasiEssay.length; i++) {
-                const val = document.getElementById(`essayInput_${i}`).value.trim();
+            for(let i = 0; i < dataEssay.length; i++) {
+                const val = document.getElementById(`essayInput_${babNum}_${i}`).value.trim();
                 if(!val) allFilled = false;
-                studentData.essayAnswers.push(val);
+                st.essayAnswers.push(val);
             }
 
             if(!allFilled) {
                 if(!confirm('Ada jawaban esai yang belum diisi. Tetap kumpulkan evaluasi?')) return;
             }
 
-            finishEvaluation();
+            finishEvaluation(babNum);
         }
 
-        function finishEvaluation() {
-            document.getElementById('evalEssayStep').style.display = 'none';
-            document.getElementById('evalResultStep').style.display = 'block';
+        function finishEvaluation(babNum) {
+            let st = getState(babNum);
 
-            document.getElementById('resName').innerText = studentData.name;
-            document.getElementById('resClass').innerText = studentData.class;
-            document.getElementById('resPgScore').innerText = studentData.pgScore;
+            document.getElementById(`evalEssayStep${babNum}`).style.display = 'none';
+            document.getElementById(`evalResultStep${babNum}`).style.display = 'block';
 
-            renderReviewList();
+            document.getElementById(`resName${babNum}`).innerText = st.name;
+            document.getElementById(`resClass${babNum}`).innerText = st.class;
+            document.getElementById(`resPgScore${babNum}`).innerText = st.pgScore;
+
+            renderReviewList(babNum);
 
             teacherDataList.push({
-                name: studentData.name,
-                class: studentData.class,
-                score: studentData.pgScore,
+                bab: `Bab ${babNum}`,
+                name: st.name,
+                class: st.class,
+                score: st.pgScore,
                 essayStatus: "Sudah Mengisi"
             });
         }
 
-        function sendToWhatsAppGuru() {
+        function sendToWhatsAppGuru(babNum) {
+            let st = getState(babNum);
+            let dataEssay = getEvaluasiEssayData(babNum);
             const phone = "6282318451163";
             
-            // Menyusun daftar jawaban esai (1-5)
             let essayFormattedText = "";
-            evaluasiEssay.forEach((item, idx) => {
-                const answerText = studentData.essayAnswers[idx] || "Tidak diisi";
+            dataEssay.forEach((item, idx) => {
+                const answerText = st.essayAnswers[idx] || "Tidak diisi";
                 essayFormattedText += `\n*Soal ${idx + 1}:* ${item.q}\n*Jawaban:* ${answerText}\n`;
             });
 
-            // Template pesan WhatsApp lengkap
-            const textTemplate = `Assalamualaikum Wr Wb\nHalooo Pak, Saya *${studentData.name}* dari kelas *${studentData.class}* telah menyelesaikan Evaluasi Bab 1.\n\n` +
-                                 `📊 *HASIL EVALUASI:* \n` +
-                                 `- *Skor Pilihan Ganda:* ${studentData.pgScore} / 100\n\n` +
+            const textTemplate = `Assalamualaikum Wr Wb\nHalooo Pak, Saya *${st.name}* dari kelas *${st.class}* telah menyelesaikan Evaluasi Bab ${babNum}.\n\n` +
+                                 `📊 *HASIL EVALUASI BAB ${babNum}:* \n` +
+                                 `- *Skor Pilihan Ganda:* ${st.pgScore} / 100\n\n` +
                                  `📝 *JAWABAN ESAI:*` +
                                  `${essayFormattedText}`;
 
@@ -1430,17 +1813,19 @@
             window.open(waUrl, '_blank');
         }
 
-        function toggleReviewSection() {
-            const container = document.getElementById('reviewContainer');
+        function toggleReviewSection(babNum) {
+            const container = document.getElementById(`reviewContainer${babNum}`);
             container.style.display = container.style.display === 'none' ? 'block' : 'none';
         }
 
-        function renderReviewList() {
-            const container = document.getElementById('reviewList');
+        function renderReviewList(babNum) {
+            let st = getState(babNum);
+            let dataPG = getEvaluasiPGData(babNum);
+            const container = document.getElementById(`reviewList${babNum}`);
             container.innerHTML = '';
 
-            evaluasiPG.forEach((q, idx) => {
-                const userAns = studentData.selectedPGAnswers[idx];
+            dataPG.forEach((q, idx) => {
+                const userAns = st.selectedPGAnswers[idx];
                 const isCorrect = userAns === q.answer;
 
                 const item = document.createElement('div');
@@ -1464,12 +1849,13 @@
             tableBody.innerHTML = '';
 
             if (teacherDataList.length === 0) {
-                tableBody.innerHTML = `<tr><td colspan="5" style="text-align:center; color:#888;">Belum ada siswa yang mengerjakan evaluasi.</td></tr>`;
+                tableBody.innerHTML = `<tr><td colspan="6" style="text-align:center; color:#888;">Belum ada siswa yang mengerjakan evaluasi.</td></tr>`;
             } else {
                 teacherDataList.forEach((st, idx) => {
                     const tr = document.createElement('tr');
                     tr.innerHTML = `
                         <td><b>${idx + 1}</b></td>
+                        <td><span style="background:var(--primary); color:white; padding:3px 8px; border-radius:6px; font-size:0.8rem;">${st.bab}</span></td>
                         <td>${st.name}</td>
                         <td>${st.class}</td>
                         <td><b>${st.score}</b></td>
@@ -1479,28 +1865,54 @@
                 });
             }
 
-            const keyPgContainer = document.getElementById('teacherKeyListPG');
-            keyPgContainer.innerHTML = '';
-            evaluasiPG.forEach((q, idx) => {
+            // Kunci Jawaban Bab 1
+            const keyPgContainer1 = document.getElementById('teacherKeyListPG1');
+            keyPgContainer1.innerHTML = '';
+            evaluasiPG1.forEach((q, idx) => {
                 const div = document.createElement('div');
                 div.style.marginBottom = "0.8rem";
                 div.innerHTML = `
                     <p><b>${idx + 1}. ${q.question}</b></p>
                     <p style="color:var(--primary-light);"><b>Kunci:</b> ${q.options[q.answer]}</p>
                 `;
-                keyPgContainer.appendChild(div);
+                keyPgContainer1.appendChild(div);
             });
 
-            const keyEssayContainer = document.getElementById('teacherKeyListEssay');
-            keyEssayContainer.innerHTML = '';
-            evaluasiEssay.forEach((item, idx) => {
+            const keyEssayContainer1 = document.getElementById('teacherKeyListEssay1');
+            keyEssayContainer1.innerHTML = '';
+            evaluasiEssay1.forEach((item, idx) => {
                 const div = document.createElement('div');
                 div.style.marginBottom = "1rem";
                 div.innerHTML = `
                     <p><b>${item.q}</b></p>
                     <p style="color:var(--primary); background:#f1f5f9; padding:8px; border-radius:6px; font-size:0.9rem;"><b>Jawaban Ideal:</b> ${item.key}</p>
                 `;
-                keyEssayContainer.appendChild(div);
+                keyEssayContainer1.appendChild(div);
+            });
+
+            // Kunci Jawaban Bab 2
+            const keyPgContainer2 = document.getElementById('teacherKeyListPG2');
+            keyPgContainer2.innerHTML = '';
+            evaluasiPG2.forEach((q, idx) => {
+                const div = document.createElement('div');
+                div.style.marginBottom = "0.8rem";
+                div.innerHTML = `
+                    <p><b>${idx + 1}. ${q.question}</b></p>
+                    <p style="color:var(--primary-light);"><b>Kunci:</b> ${q.options[q.answer]}</p>
+                `;
+                keyPgContainer2.appendChild(div);
+            });
+
+            const keyEssayContainer2 = document.getElementById('teacherKeyListEssay2');
+            keyEssayContainer2.innerHTML = '';
+            evaluasiEssay2.forEach((item, idx) => {
+                const div = document.createElement('div');
+                div.style.marginBottom = "1rem";
+                div.innerHTML = `
+                    <p><b>${item.q}</b></p>
+                    <p style="color:var(--primary); background:#f1f5f9; padding:8px; border-radius:6px; font-size:0.9rem;"><b>Jawaban Ideal:</b> ${item.key}</p>
+                `;
+                keyEssayContainer2.appendChild(div);
             });
         }
     </script>
